@@ -1,2 +1,1 @@
-# airbnb-pt1-starter
-Starter code for AirBnb Pt1 Clone
+# Kavholm AirBnB Clone Lab 1 Student Version
