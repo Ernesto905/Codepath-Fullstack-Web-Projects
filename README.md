@@ -15,3 +15,17 @@ Go to `https://www.twitter.com` now to see their modern UI.
 The task here will be to write code that specs out the old user interface with modern React code.
 
 Follow the instructions available on the [course portal](https://courses.codepath.org/courses/summer_internship_for_tech_excellence/unit/2#!lab2)
+
+## Setting up the lab
+
+Make sure to install the proper dependencies.
+
+```bash
+npm install
+```
+
+Once that's done, run the application like so:
+
+```bash
+npm run dev
+```
