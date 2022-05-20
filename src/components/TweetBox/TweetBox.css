@@ -1,0 +1,92 @@
+.tweet-box {
+  background: var(--twitter-light-blue);
+  transition: height 0.2s ease;
+}
+.tweet-textarea {
+  background: var(--twitter-light-blue);
+  padding-top: 10px;
+  transition: height 0.2s ease;
+  display: flex;
+}
+.tweet-textarea .avatar-icon {
+  margin-left: 20px;
+}
+.tweet-textarea textarea {
+  width: 70%;
+  min-height: 90px;
+  flex: 1;
+  height: 30px;
+  margin-left: 10px;
+  margin-right: -10px;
+  border-radius: 8px;
+  border: solid 1px var(--twitter-mid-gray);
+  color: var(--twitter-blue);
+  padding: 8px 20px 0 8px;
+  padding-right: 40px;
+  font-size: 16px;
+  transition: height 0.2s ease;
+  font-weight: 300;
+  resize: none;
+}
+.tweet-textarea textarea.expanded {
+  height: 150px;
+}
+.tweet-textarea .fa-image,
+.tweet-textarea .fa-smile {
+  transform: translateX(-25px) translateY(8px);
+  font-size: 24px;
+  color: var(--twitter-blue);
+  transition: all 0.2s ease;
+}
+.tweet-box-footer {
+  height: 60px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-left: 70px;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+.tweet-box-footer .tweet-box-icons {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 20px;
+}
+.tweet-box-footer i {
+  color: var(--twitter-blue);
+  font-size: 24px;
+  transform: translateY(3px);
+  padding-bottom: 5px;
+}
+.tweet-box-footer .icon-gif {
+  font-size: 10px;
+  padding: 4px;
+  border: solid 1px var(--twitter-blue);
+  border-radius: 4px;
+  transform: translateY(0px);
+}
+.tweet-box-footer .tweet-submit {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 2px;
+  gap: 3px;
+}
+.tweet-box-footer .submit-button {
+  background: var(--twitter-blue);
+  color: white;
+  font-size: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+.tweet-length {
+  margin-left: auto;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  margin-top: 5px;
+  font-size: 20px;
+}
