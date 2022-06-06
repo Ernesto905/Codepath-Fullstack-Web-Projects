@@ -1,0 +1,52 @@
+body{
+    background-color: #7d7373;
+    background-image: linear-gradient(43deg, #7d7373 0%, #e7e7f3 46%, #FFCC70 100%);
+
+
+}
+
+
+h1 {
+    font-size: 80px;
+    text-align: center;
+    opacity: 0.6;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+
+
+h2{
+    font-size: 40px;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+p {
+    font-size: 30px;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    line-height: 45px;
+
+    
+}
+
+ul {
+    font-size: 30px;
+}
+
+#school_name{
+    font-size: 30px;
+}
+
+.Edu, .Skills_languages, .bio{
+    padding-left: 30px;
+    background-color: #0026ef;
+    background-color: #7d7373;
+    background-image: linear-gradient(43deg, #7d7373 0%, #e7e7f3 46%, #FFCC70 100%);
+
+    border-radius: 20px;
+}
+
+.Intro {
+    text-align: left;
+}
+
+
