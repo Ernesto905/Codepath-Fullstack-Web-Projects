@@ -1,5 +1,26 @@
-.topOfThePage {
+body {
+    background-color: rgb(36, 36, 36);
+}
+.topOfThePage, .searchElements {
     padding: 50px;
     text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
+
+
+#gif_results {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.individual-gif {
+    display: block;
+    width: 400px;
+    height: 400px;
+    align-items: center;
+    padding: 40px;
+}

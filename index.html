@@ -20,18 +20,24 @@
 
     
     <form id="ourForm">
-        <div>
-            <label for = "gifSearch">Search for a gif</label>
-            <input type="text" id="gifSearch" name="gifSearch" placeholder="Search for a gif: " required>
-        </div>
 
-        <div>
+        <div class="searchElements">
+            <label for = "gifSearch"> Search for a gif </label>
+            <input type="text" id="gifSearch" name="gifSearch" placeholder="Search for a gif: " required>
             <input type="submit" id="button">
         </div>
 
-        <div id="gif_results">
 
+        <div id="gif_results">
+            
         </div>
+
+        <div id="moreResults">
+
+            
+        </div>
+
+        <button class="hidden" onclick=showMoreGifs() id="addGifsBtn">Load more gifs</button> 
 
     </form>
 
