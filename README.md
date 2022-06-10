@@ -6,7 +6,7 @@ Submitted by: **Ernesto**
 
 Estimated time spent: **10** hours spent in total
 
-Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
+Deployed Application (optional): [Flixster Deployed Site](https://ernesto905.github.io/flixster_starter/)
 
 ### Application Features
 
@@ -34,7 +34,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 #### STRETCH FEATURES
 
-- [ ] Deploy website using GitHub Pages. 
+- [x] Deploy website using GitHub Pages. 
 - [x] Allow user to view more details about a movie within a popup.
 - [x] Improve the user experience through CSS & animation.
 - [x] Allow movie video trailers to be played using [embedded YouTube](https://support.google.com/youtube/answer/171780?hl=en)
@@ -50,15 +50,15 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Yes. All of the material I needed to complete the assignment was reviewed or offered through the codepath website.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would make the website prettier. Vanilla CSS is, unfortunatly, quite annoying. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+Connecting to the API was, for the most part, smooth sailing. Handling and debugging the CSS-- not so much! 
 
 ### Open-source libraries used
 
@@ -66,4 +66,4 @@ Add your response here
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+I want to give a shout out to Roy the TA for helping me out with the CSS. 
