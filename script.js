@@ -2,18 +2,32 @@
 const API_KEY = '2a933e575f282f006036a202af525013';
 let page = 1;
 let lang = 'en-US'
+let baseYoutubeUrl = "https://www.youtube.com/embed/"
 
 //DOM references
 let searchBox = document.getElementById('search-input')
 let searchButton = document.querySelector('.search-btn')
 let showMoreButton = document.getElementById('load-more-movies-btn')
 let movieArea = document.querySelector('.movie-card')
+let individualMovie = document.querySelector('.individual-movie')
+let flixterLogo = document.getElementById('logo')
+let popUp = document.getElementById("popup-1")
+let popUpTitle = document.getElementById("popUp-title")
+let popUpText = document.getElementById("popUp-text")
 
 
 
 //buttons 
 searchButton.addEventListener('click', getResults)
 showMoreButton.addEventListener('click', displayMoreMovies)
+flixterLogo.addEventListener('click', refreshSite)
+
+function refreshSite() {
+
+    showCurrentMovies();
+}
+
+
 
 
 
@@ -28,7 +42,6 @@ async function showCurrentMovies() {
     
     //display individual movie details 
     ourMovies.forEach(function(element){
-        displayMovieImg(element)
         displayMovieDetails(element)
     });
 }
@@ -50,25 +63,28 @@ async function getResults(evt) {
 
     //display individual movie details 
     ourMovies.forEach(function(element){
-        displayMovieImg(element)
+       
         displayMovieDetails(element)
     });
 }
 
 
-function displayMovieImg(ourMovie) {
-    let posterPath = ourMovie.poster_path
-    let ourImageUrl = `https://image.tmdb.org/t/p/w400/${posterPath}` 
-    
-    movieArea.innerHTML += `<img class="movie-poster" src=` + ourImageUrl + ' alt="our-movie-image">'
-}
-
 function displayMovieDetails(ourMovie) {
     let rating = ourMovie.vote_average 
     let movieName = ourMovie.original_title
+    let movieId = ourMovie.id
+    let posterPath = ourMovie.poster_path
+    let ourImageUrl = `https://image.tmdb.org/t/p/w500/${posterPath}`
 
-    movieArea.innerHTML += `<p class="movie-votes">${rating}</p>`
-    movieArea.innerHTML += `<p class="movie-title">${movieName}</p>`
+    
+    movieArea.innerHTML += 
+    `<div class="individual-movie">`
+    + `<div class="movie">` 
+    +  `<img class="movie-poster" onclick="togglePopup('${movieId}')" id="${movieName}" src=` + ourImageUrl 
+    +  ` alt="our-movie-image"><p class="movie-votes">`
+    + `</div><br>`
+    + `<p class="movie-votes">Rating: ${rating}</p> <p class="movie-title">${movieName}</p></div>`
+
 }
 
 
@@ -88,9 +104,59 @@ async function displayMoreMovies() {
 
     //display individual movie details 
     ourMovies.forEach(function(element){
-        displayMovieImg(element)
+        
         displayMovieDetails(element)
     });
+}
+
+
+async function togglePopup(movieId) {
+    let apiUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+    let videoApiUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`
+    
+    const [response, videoResponse] = await Promise.all([
+        fetch(apiUrl),
+        fetch(videoApiUrl),
+      ]);
+
+    const ourMovie = await response.json()
+    const ourVideo = await videoResponse.json()
+    
+   
+
+    //Declare movie details (INCLUDE: runtime in minutes, Backdrop poster, release date, genres and a overview.)
+    let title = ourMovie.original_title
+    let releaseDate = ourMovie.release_date
+    let runTime = ourMovie.runtime
+    let overview = ourMovie.overview
+    let backDrop = ourMovie.backdrop_path
+    let genresList = ourMovie.genres
+    let ourGenres = "";
+    let ourImageUrl = `https://image.tmdb.org/t/p/w400/${backDrop}`
+    let ourVideoUrl = baseYoutubeUrl + ourVideo.results[0].key
+    
+    //html to be inserted
+    genresList.forEach(element => {
+        ourGenres += element.name + " "
+    });
+    let ourHTML = "Release date: " + releaseDate
+    + "<br>Runtime: " + runTime + " Minutes<br>"
+    + "Genres: " + ourGenres 
+    + `<br><img widht="400px" height="100px" src=${ourImageUrl}><br>`
+    + "Overview: " + overview
+    + `<iframe width="100%" height="320px" src="${ourVideoUrl}" title="YouTube video player">`
+
+
+    //activate and write into popUp
+    popUp.classList.add('active')
+
+    popUpTitle.innerHTML = title;
+    popUpText.innerHTML = ourHTML
+} 
+
+
+function closePopup(){
+    popUp.classList.toggle('active')
 }
 
 //initiate function call

@@ -8,6 +8,12 @@
     <title>Flixter App</title>
 </head>
 <body>
+
+    
+    
+
+
+
     <div id="intro">
         <h1>Flixter App</h1>
         <img id="logo" src="FlixterLogo.webp" alt="[Flixter Logo]">
@@ -17,6 +23,7 @@
     <form id="search-form">
         <input id="search-input" name="search-name" placeholder="Enter a search" type="text">
         <button type="submit" class="search-btn">Search for a movie</button>
+        <button type="submit" class="reset-page">Now Playing </button>
         <h2 class="center">Now playing</h2>
     </form>
         
@@ -26,6 +33,18 @@
 
         <button type="button" id="load-more-movies-btn">Show more</button>
 
+
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div> 
+            <div class="content">
+                <div class="close-btn" onclick="closePopup()">&times;</div>
+                <h1 id="popUp-title" class="popup-title">Title</h1>
+                <p id="popUp-text">
+                    Text goes here
+                </p>
+            </div>
+        </div>
+        
 </body>
 
     <script src="script.js"> </script>
