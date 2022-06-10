@@ -21,6 +21,7 @@ let popUpText = document.getElementById("popUp-text")
 searchButton.addEventListener('click', getResults)
 showMoreButton.addEventListener('click', displayMoreMovies)
 flixterLogo.addEventListener('click', refreshSite)
+mybutton = document.getElementById("myBtn");
 
 function refreshSite() {
 
@@ -158,6 +159,21 @@ async function togglePopup(movieId) {
 function closePopup(){
     popUp.classList.toggle('active')
 }
+
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+  
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  } 
 
 //initiate function call
 showCurrentMovies();
