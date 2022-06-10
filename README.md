@@ -42,19 +42,23 @@ Deployed Application (optional): [Flixster Deployed Site](https://ernesto905.git
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+#### Back to top button
+<img src="http://g.recordit.co/O0Cb7SMYUC.gif" width = 500><br>
+#### Search function
+<img src="http://g.recordit.co/LDDKzGDiGx.gif" width=500><br>
+#### Popup function
+<img src="http://g.recordit.co/1XbJ66Kmyk.gif" width=500>
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Yes. All of the material I needed to complete the assignment was reviewed or offered through the codepath website.
+Yes, all of the material I needed to complete the assignment was reviewed or offered through the codepath website.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-If I had more time, I would make the website prettier. Vanilla CSS is, unfortunatly, quite annoying. 
+If I had more time, I would make the website prettier. Debugging in vanilla CSS is, unfortunatly, quite tedious. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
@@ -62,8 +66,8 @@ Connecting to the API was, for the most part, smooth sailing. Handling and debug
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- None
 
 ### Shout out
 
-I want to give a shout out to Roy the TA for helping me out with the CSS. 
+I want to give a shout out to Roy the TA for helping me out with the CSS.
