@@ -8,8 +8,8 @@ let baseYoutubeUrl = "https://www.youtube.com/embed/"
 let searchBox = document.getElementById('search-input')
 let searchButton = document.querySelector('.search-btn')
 let showMoreButton = document.getElementById('load-more-movies-btn')
-let movieArea = document.querySelector('.movie-card')
-let individualMovie = document.querySelector('.individual-movie')
+let movieArea = document.querySelector('.our-movie')
+let individualMovie = document.querySelector('.movie-card')
 let flixterLogo = document.getElementById('logo')
 let popUp = document.getElementById("popup-1")
 let popUpTitle = document.getElementById("popUp-title")
@@ -79,7 +79,7 @@ function displayMovieDetails(ourMovie) {
 
     
     movieArea.innerHTML += 
-    `<div class="individual-movie">`
+    `<div class="movie-card">`
     + `<div class="movie">` 
     +  `<img class="movie-poster" onclick="togglePopup('${movieId}')" id="${movieName}" src=` + ourImageUrl 
     +  ` alt="our-movie-image"><p class="movie-votes">`
