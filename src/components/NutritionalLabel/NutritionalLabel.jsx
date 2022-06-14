@@ -3,12 +3,16 @@ import { nutritionFacts } from "../../constants"
 import "./NutritionalLabel.css"
 
 export function NutritionalLabel(props) {
+<<<<<<< HEAD
   const {item} = props
+=======
+>>>>>>> 93259fc54cb371db1204910a1f4ec9d2f9a15c2e
   
   return (
     <div className="nutritional-label">
       <h3 className="title">Nutrition Facts</h3>
 
+<<<<<<< HEAD
       <h4 className="item-name">{props.item?.item_name}</h4>
 
       <ul className="fact-list">
@@ -23,6 +27,14 @@ export function NutritionalLabel(props) {
           />}
 
         )}
+=======
+      <h4 className="item-name">{props.item.item_name}</h4>
+
+      <ul className="fact-list">
+        {nutritionFacts.map((nutritionFact, index) => {
+          console.log(nutritionFact)
+        })}
+>>>>>>> 93259fc54cb371db1204910a1f4ec9d2f9a15c2e
       </ul>
     </div>
   )
@@ -31,9 +43,14 @@ export function NutritionalLabel(props) {
 export function NutritionalLabelFact(props) {
   return (
     <li className="nutrition-fact">
+<<<<<<< HEAD
       
       <span className="fact-label">{props.label}</span>{" "}
       <span className="fact-value">{props.item[props.attribute]}</span>
+=======
+      <span className="fact-label">{props.label}</span>{" "}
+      <span className="fact-value">{props.item?.[props.attribute]}</span>
+>>>>>>> 93259fc54cb371db1204910a1f4ec9d2f9a15c2e
     </li>
   )
 }
