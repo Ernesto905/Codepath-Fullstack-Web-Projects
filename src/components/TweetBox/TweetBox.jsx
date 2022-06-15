@@ -3,14 +3,43 @@ import TweetInput from "./TweetInput"
 import "./TweetBox.css"
 
 export default function TweetBox(props) {
+  
+  function handleOnTweetTextChange (evt) {
+    props.setTweetText(evt.target.value)
+  }
+
+  function handleOnSubmit() {
+    let newTweet = [...props.tweets, { 
+      id: props.tweets.length,
+      name: props.userProfile.name,
+      handle: props.userProfile.handle,
+      text: props.tweetText,
+      comments:0,
+      retweets: 0,
+      likes: 0,
+    }]  
+
+    props.setTweets(newTweet)
+    props.setTweetText('')
+  }
+
+  
+  let count = props.tweetText.length > 140 || props.tweetText.length >= 1 ? "disable" : "";
+
+  
   return (
     <div className="tweet-box">
-      <TweetInput />
 
+      
+      <TweetInput 
+      value={props.tweetText}
+      handleOnChange={handleOnTweetTextChange}
+      />
+      
       <div className="tweet-box-footer">
         <TweetBoxIcons />
-        <TweetCharacterCount />
-        <TweetSubmitButton />
+        <TweetCharacterCount tweetLength={props.tweetText.length}/>
+        <TweetSubmitButton count={count} handleOnSubmit={handleOnSubmit} />
       </div>
     </div>
   )
@@ -29,14 +58,16 @@ export function TweetBoxIcons() {
 
 export function TweetCharacterCount(props) {
   // ADD CODE HERE
-  return <span></span>
+  
+  return <span className= 'tweet-length' >{140 - props.tweetLength}</span>
 }
 
-export function TweetSubmitButton() {
+export function TweetSubmitButton({handleOnSubmit}, props) {
+
   return (
     <div className="tweet-submit">
       <i className="fas fa-plus-circle"></i>
-      <button className="tweet-submit-button">Tweet</button>
+      <button onClick={handleOnSubmit} disabled={props.count} className="tweet-submit-button">Tweet</button>
     </div>
   )
 }
