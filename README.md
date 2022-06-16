@@ -45,17 +45,17 @@ The following specifications were met on the Express backend and the React front
   - [ ] Renders the `Navbar` component on every route
   - [ ] Renders the `Sidebar` component on every route
   - [ ] Should create **at least** the following state variables:
-    - [ ] `products` - an array of product objects that is initially empty.
-    - [ ] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
-    - [ ] `error` - a variable used to display a message when something goes wrong with the API requests.
-    - [ ] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
-    - [ ] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
-      - [ ] Use whatever data type works best here, but make sure the format the `shoppingCart` as an array before passing it to other components.
-      - [ ] When passed down to other components as a prop, it should formatted as an array of objects.
+    - [x] `products` - an array of product objects that is initially empty.
+    - [x] `isFetching` - a boolean value representing whether or not the App is currently fetching the `products` from the API.
+    - [x] `error` - a variable used to display a message when something goes wrong with the API requests.
+    - [x] `isOpen` - a boolean value representing whether or not the `Sidebar.jsx` is in the open or closed state.
+    - [x] `shoppingCart` - should store state for the active user's shopping cart (items they want to purchase and the quantity of each item).
+      - [x] Use whatever data type works best here, but make sure the format the `shoppingCart` as an array before passing it to other components.
+      - [x] When passed down to other components as a prop, it should formatted as an array of objects.
       - [ ] Each object in the array should have two fields:
         - [ ] The `itemId` field should store the `id` of the item being purchased.
         - [ ] The `quantity` field should store a number representing how many of that item the user is purchasing.
-    - [ ] `checkoutForm` - the user's information that will be sent to the API when they checkout.
+    - [x] `checkoutForm` - the user's information that will be sent to the API when they checkout.
   - [ ] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
     - [ ] It should make a `GET` request to the API's `/store` endpoint with the `axios.get` method.
     - [ ] When the request completes successfully, it should store the `products` returned by the response in state.
