@@ -5,6 +5,7 @@ import Hero from "../Hero/Hero"
 import ProductGrid from "../ProductGrid/ProductGrid"
 import ProductCard from "../ProductCard/ProductCard"
 import SubNavbar from "../SubNavbar/SubNavbar"
+import Footer from "../Footer/Footer"
 
 export default function Home(props) {
   return (
@@ -20,6 +21,8 @@ export default function Home(props) {
         handleAddItemToCart={props.handleAddItemToCart}
         handleRemoveItemToCart={props.handleRemoveItemToCart}
       />
+
+      <Footer/>
 
       {/* TODO: Iterate over products*/}
 

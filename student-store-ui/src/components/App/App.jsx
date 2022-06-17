@@ -21,7 +21,7 @@ export default function App() {
   const [isFetching, setIsFetching] = useState(false) //currently fetching a product from API
   const [error, setError] = useState(null)
   const [isOpen, setIsOpen] = useState(false) //for sidebar
-  const [shoppingCart, setShoppingCart] = useState([null])
+  const [shoppingCart, setShoppingCart] = useState([{}])
   const [checkoutForm, setCheckoutForm] = useState(null)
 
   //Connect to API  
@@ -40,12 +40,13 @@ export default function App() {
   
 
   //handler functions
-  function handleAddItemToCart() {
-    let iDoNothing=null
+  function handleAddItemToCart(id) {
+    console.log('nothing to see here ' + id)
+      
   }
 
-  function handleRemoveItemToCart() {
-    let iDoNothing=null
+  function handleRemoveItemToCart(id) {
+    console.log('i have been clicked also ' + id)
   }
 
 

@@ -10,8 +10,7 @@ export default function ProductDetail(props) {
 
     let { productId } = useParams();
 
-    let {handleAddItemToCart} = props.handleAddItemToCart 
-    let {handleRemoveItemToCart} = props.handleRemoveItemToCart
+    
 
     return (
         <div className="product-detail">
