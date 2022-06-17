@@ -56,10 +56,10 @@ The following specifications were met on the Express backend and the React front
         - [ ] The `itemId` field should store the `id` of the item being purchased.
         - [ ] The `quantity` field should store a number representing how many of that item the user is purchasing.
     - [x] `checkoutForm` - the user's information that will be sent to the API when they checkout.
-  - [ ] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
-    - [ ] It should make a `GET` request to the API's `/store` endpoint with the `axios.get` method.
-    - [ ] When the request completes successfully, it should store the `products` returned by the response in state.
-    - [ ] If the request does not complete successfully, or there are no `products` found in the response,
+  - [x] Leverage the `useEffect` hook to ensure that when the `App.jsx` component is mounted to the screen...
+    - [x] It should make a `GET` request to the API's `/store` endpoint with the `axios.get` method.
+    - [x] When the request completes successfully, it should store the `products` returned by the response in state.
+    - [x] If the request does not complete successfully, or there are no `products` found in the response,
             it should create an error message and store it in the `error` state variable.
   - [ ] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
     - [ ] Define as many as are needed.
