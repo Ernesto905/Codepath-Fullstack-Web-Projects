@@ -9,8 +9,12 @@ import Home from "../Home/Home"
 import NotFound from "../NotFound/NotFound"
 import ProductDetail from "../ProductDetail/ProductDetail"
 
-//Import Routes
+//Import Routes and API 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import axios from 'axios'
+import { useEffect } from "react"
+
+
 
 export default function App() {
   const [products, setProducts] = useState('')
@@ -19,6 +23,30 @@ export default function App() {
   const [isOpen, setIsOpen] = useState(false) //for sidebar
   const [shoppingCart, setShoppingCart] = useState([null])
   const [checkoutForm, setCheckoutForm] = useState(null)
+
+  //Connect to API  
+  try{
+    const getData = async () => {
+      const response  = await axios.get('https://codepath-store-api.herokuapp.com/store');
+      setProducts(response.data.products);
+    };
+    useEffect(() => {
+      getData();
+    }, []);
+  } catch (error) {
+    setError(error)
+  }
+  
+  
+
+  //handler functions
+  function handleAddItemToCart() {
+    let iDoNothing=null
+  }
+
+  function handleRemoveItemToCart() {
+    let iDoNothing=null
+  }
 
 
   return (
@@ -31,7 +59,16 @@ export default function App() {
             <Sidebar />
        
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={
+
+
+              <Home 
+                products={products} 
+                handleAddItemToCart={handleAddItemToCart} 
+                handleRemoveItemToCart ={handleRemoveItemToCart}
+              />
+
+            }/>
             <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path="*" element={<NotFound />}/>
           </Routes>
