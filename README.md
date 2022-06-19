@@ -278,3 +278,15 @@ The following specifications were met on the Express backend and the React front
         - **optional**:
           - [ ] `receipt` - text describing the order (what might go on a receipt)
       - [ ] It should then send a JSON response back to the client with the new purchase like so: `{ "purchase": purchase }`. The response should have a `201` status code for a resource created action.
+
+
+
+### Reflection Questions
+#### 1. Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in you weeekly assignment did you feel unprepared to complete. 
+Because react is such a dense framework, it was near impossible to provide a  comprehensively guide on everything we would require to complete the assignment. Codepath, however, did a wonderful time touching on the base necessities. Topics such as routing and working with the axios API were a bit confusing at first. But thanks to codepath exposing us to these technologies early and ofter, we were able to grasp their concepts after some personal research with greater ease. 
+
+#### 2. If you had more time what would you have done differently? Would you have added additional features? Changed teh way your project responded to a particular event, etc.
+If I had more time I would have done a better job with the CSS. I would also have implemented additional stretch features. 
+
+#### 3. Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? DId you notice something that your peer did that you would like to do next time? 
+Since my demo was done over email due to personal manners, I was unable to compare with my pod mates and fellow interns. Nevertheless, I hoped to have done a better job on the styling front. After all, what clients and customers first notice about a webpage is its UI and UX. I know for next time to dedicate more time to website aesthetics and user usability.  
