@@ -34,8 +34,16 @@ module.exports = class GiftExchange {
     }
 
     traditional(names) {
-        ourArray = this.randomize(names)
+        let ourArray = this.randomize(names)
+        let ourSentece = []
         
+        ourArray.forEach((item) => 
+            ourSentece.push(item[0] + " is giving a gift to " + item[1])
+        )
+        console.log(ourSentece)
+        return ourSentece
     }
+
+    
 }
 
