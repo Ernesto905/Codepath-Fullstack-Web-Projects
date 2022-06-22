@@ -1,9 +1,28 @@
+var {BadRequestError} = require("../utils/errors")
+
 module.exports = class GiftExchange {
 
-    randomize(names) {
+
+    static pairs(names) {
+        
+        if (names.length % 2 != 0) {
+            throw new BadRequestError('Should be Even')
+        } 
+        names = names.sort(() => Math.random() - 0.5)
+
+        let pairedNames = []
+
+        while(names.length > 0) {
+            const chunk = names.splice(0, 2);
+            pairedNames.push(chunk);
+        }
+        return pairedNames
+    }
+
+    static traditional(names) {
         let ourNewArray = []
         if (names.length % 2 != 0) {
-            throw 'The number of names can not be odd'
+            throw new BadRequestError('Should be Even')
         } else {
             var arr1 = names.slice(), // copy array
                 arr2 = names.slice(); // copy array again
@@ -25,22 +44,12 @@ module.exports = class GiftExchange {
             }
             
         }
-        return ourNewArray
-    }
-    
-
-    pairs(names) {
-        return this.randomize(names)
-    }
-
-    traditional(names) {
-        let ourArray = this.randomize(names)
         let ourSentece = []
         
-        ourArray.forEach((item) => 
+        ourNewArray.forEach((item) => 
             ourSentece.push(item[0] + " is giving a gift to " + item[1])
         )
-        console.log(ourSentece)
+        
         return ourSentece
     }
 
