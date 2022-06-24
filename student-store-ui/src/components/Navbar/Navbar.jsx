@@ -2,6 +2,7 @@ import * as React from "react"
 import "./Navbar.css"
 import { useNavigate, Link } from "react-router-dom"
 import Logo from "../../components/Logo/Logo"
+import Filter from "../Filter/Filter"
 
 
 export default function Navbar(props) {
@@ -22,12 +23,14 @@ export default function Navbar(props) {
 
             </li>
             <li>
-              <Link to="/#about">About</Link>
+              <a href="/#About">About</a>
 
             </li>
             <li>
-              <Link to="/#products">Products</Link>
-
+              <a href="/#Contact">Contact</a>
+            </li>
+            <li>
+              <Link to="/Filter">Filter</Link>  
             </li>
           </ul>
         </div>

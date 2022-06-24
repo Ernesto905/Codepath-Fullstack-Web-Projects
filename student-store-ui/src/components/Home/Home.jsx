@@ -24,13 +24,20 @@ export default function Home(props) {
         shoppingCart={props.shoppingCart}
       />
 
-      <Footer/>
+      
+      <section id="About">
+        <h2>This is the about section</h2>
+        <h3>About about about</h3>
+      </section>
 
-      {/* TODO: Iterate over products*/}
+      <section id="Contact">
+        <h2>This is the contact section</h2>
+        <h3>1800411pain</h3>
+      </section>
 
-      {/* {prodcuts.map((product) => 
-        <ProductCard showDescription={false}/>
-      )} */}
+      
+
+      
 
     </div>
   )

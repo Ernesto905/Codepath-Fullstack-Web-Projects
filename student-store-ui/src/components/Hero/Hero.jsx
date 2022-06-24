@@ -13,6 +13,8 @@ function Hero() {
         </div>
         <img id='hero-img' className='image hero-image' src={heroLogo} ></img>
     </div>
+
+    
   )
 }
 

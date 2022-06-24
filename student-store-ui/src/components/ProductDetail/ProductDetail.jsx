@@ -39,19 +39,19 @@ export default function ProductDetail(props) {
 
     return (
         <div className="product-detail">
-        <h1>
-            Product Details Page 
-            Product ID: {productId}
-            {product ? <ProductView 
-            product={product}
-            productId={productId - 1 }
-            quantity={1}
-            shoppingCart={props.shoppingCart}
-            showDescription={false}
-            handleAddItemToCart = {props.handleAddItemToCart} 
-            handleRemoveItemToCart = {props.handleRemoveItemToCart}
-            /> : <NotFound/>}
-        </h1>
+            <h1 className="detail-title">
+                Product Details Page 
+                Product ID: {productId}
+            </h1>
+                {product ? <ProductView 
+                product={product}
+                productId={productId - 1 }
+                quantity={1}
+                shoppingCart={props.shoppingCart}
+                showDescription={false}
+                handleAddItemToCart = {props.handleAddItemToCart} 
+                handleRemoveItemToCart = {props.handleRemoveItemToCart}
+                /> : <NotFound/>}
         </div>
     )
 } 

@@ -8,6 +8,7 @@ import Sidebar from "../Sidebar/Sidebar"
 import Home from "../Home/Home"
 import NotFound from "../NotFound/NotFound"
 import ProductDetail from "../ProductDetail/ProductDetail"
+import Filter from "../Filter/Filter"
 
 //Import Routes and API 
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -142,6 +143,7 @@ export default function App() {
                 />
               } 
             />
+            <Route path="Filter" element={<Filter/>}/>
             <Route path="*" element={<NotFound />}/>
           </Routes>
           

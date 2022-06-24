@@ -8,3 +8,15 @@
   padding-left: 60px;
   background-color: #00c385;
 }
+
+#About {
+  border-style: solid;
+
+  height: 500px;
+}
+
+#Contact {
+  border-style: solid;
+
+  height : 300px;
+}
