@@ -13,3 +13,7 @@
     background-color: black;
     
 }
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}

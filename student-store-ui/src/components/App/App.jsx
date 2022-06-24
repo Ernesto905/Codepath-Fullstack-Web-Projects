@@ -64,16 +64,24 @@ export default function App() {
     if(shoppingCart.some(product => product.id === productId)) {
 
       const index = shoppingCart.findIndex(object => object.id === productId);
+
       let item = shoppingCart[index];
 
       item.quantity--;
+
       item.quantity = item.quantity <= 0 ? 0 : item.quantity
       
       setShoppingCart([...shoppingCart.slice(0, index), item, ...shoppingCart.slice(index+1, shoppingCart.length)]);
-      
+      if (item.quantity === 0) {
+        setShoppingCart([...shoppingCart.slice(0, index), ...shoppingCart.slice(index+1, shoppingCart.length)]);
+        console.log("shoppingCart", shoppingCart);
+      }
     } else {
       setShoppingCart(shoppingCart => [...shoppingCart, {id: productId, quantity: 1}]);
     }
+    
+    
+    
 
   }
 

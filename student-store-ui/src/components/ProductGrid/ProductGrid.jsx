@@ -43,7 +43,7 @@ export default function ProductGrid(props) {
                 </li>
             </div>
       
-      
+      <div className="products">
       {ourProducts !== null ? 
         ourProducts.
         filter(product=>product.name.toLowerCase().includes(query)).
@@ -62,6 +62,7 @@ export default function ProductGrid(props) {
           handleRemoveItemToCart = {props.handleRemoveItemToCart}
           />
         ) : null}
+      </div>
 
     </div>
   )

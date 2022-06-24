@@ -3,7 +3,7 @@
     position: relative;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 
@@ -11,7 +11,7 @@
     cursor: pointer;
     border-style: solid;
     border-color: rgb(255, 255, 255);
-    width: 300px;
+    max-width: 300px;
     height: 300px;
     border-radius: 25px;
     
