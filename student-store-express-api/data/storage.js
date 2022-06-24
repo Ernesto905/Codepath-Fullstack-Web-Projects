@@ -1,4 +1,4 @@
-const path = require("path")
+  const path = require("path")
 const low = require("lowdb")
 const FileSync = require("lowdb/adapters/FileSync")
 

@@ -20,6 +20,8 @@ export default function Home(props) {
         products={props.products}
         handleAddItemToCart={props.handleAddItemToCart}
         handleRemoveItemToCart={props.handleRemoveItemToCart}
+        findQuantityById={props.findQuantityById}
+        shoppingCart={props.shoppingCart}
       />
 
       <Footer/>

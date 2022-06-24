@@ -2,19 +2,20 @@
 import * as React from "react"
 import ProductCard from "../ProductCard/ProductCard"
 import { useState } from "react"
+import "./ProductGrid.css"
 
 
 export default function ProductGrid(props) {
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('')
 
-  function handleSetCategory(newCat) {
-    setCategory(newCat)
-  }
+  let quantity = props.shoppingCart !== [] ? null : props.shoppingCart.find(prod => prod.id == props.product.id);
+
+  
 
   //object manipulation 
   let ourProducts = (props.products !== '' ? Object.values(props.products) : null)
-  console.log(ourProducts)
+  
 
   return ( 
     <div className="product-grid">
@@ -52,11 +53,11 @@ export default function ProductGrid(props) {
 
           <ProductCard 
           key={product + '-' + index}
-          
+          shoppingCart={props.shoppingCart}
           product={product} 
           showDescription={false}
           productId={props.productId}
-          quantity = {props.quantity}
+          quantity = {quantity}
           handleAddItemToCart = {props.handleAddItemToCart} 
           handleRemoveItemToCart = {props.handleRemoveItemToCart}
           />

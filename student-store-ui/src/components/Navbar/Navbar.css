@@ -1,12 +1,15 @@
 .navbar {
     width: 100%;
     max-width: 100vw;
-    
+    padding-left: 60px;
     height: 70px;
+    justify-content: space-between;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0 var(--side-padding);
+    
+    
 }
 
 .navbar .content {
@@ -14,7 +17,22 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
-    
+    flex-direction: row;
     align-items: center;
 }
 
+
+.links li {
+    display: inline;
+    flex-direction: row;
+    padding: 300px;
+    padding-left: 100px;
+
+}
+
+.store-name {
+    padding-right: 40px;
+}
+.open {
+    padding-left: 300px;
+}

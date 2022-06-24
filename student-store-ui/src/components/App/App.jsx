@@ -21,14 +21,15 @@ export default function App() {
   const [isFetching, setIsFetching] = useState(false) //currently fetching a product from API
   const [error, setError] = useState(null)
   const [isOpen, setIsOpen] = useState(false) //for sidebar
-  const [shoppingCart, setShoppingCart] = useState([{}])
+  const [shoppingCart, setShoppingCart] = useState([])
   const [checkoutForm, setCheckoutForm] = useState(null)
 
   //Connect to API  
   try{
     const getData = async () => {
-      const response  = await axios.get('https://codepath-store-api.herokuapp.com/store');
-      setProducts(response.data.products);
+      const response  = await axios.get('http://localhost:3002/store');
+      console.log(response)
+      setProducts(response.data);
     };
     useEffect(() => {
       getData();
@@ -40,14 +41,53 @@ export default function App() {
   
 
   //handler functions
-  function handleAddItemToCart(id) {
-    console.log('nothing to see here ' + id)
+  function handleAddItemToCart(productId) {
+    
+    if(shoppingCart.some(product => product.id === productId)) {
+
+      const index = shoppingCart.findIndex(object => object.id === productId);
+      let item = shoppingCart[index];
+
+      item.quantity++;
       
+      setShoppingCart([...shoppingCart.slice(0, index), item, ...shoppingCart.slice(index+1, shoppingCart.length)]);
+      
+    } else {
+      setShoppingCart(shoppingCart => [...shoppingCart, {id: productId, quantity: 1}]);
+    }
+    // console.log('shopping cart', shoppingCart)
+    
   }
 
-  function handleRemoveItemToCart(id) {
-    console.log('i have been clicked also ' + id)
+  function handleRemoveItemToCart(productId) {
+    
+    if(shoppingCart.some(product => product.id === productId)) {
+
+      const index = shoppingCart.findIndex(object => object.id === productId);
+      let item = shoppingCart[index];
+
+      item.quantity--;
+      item.quantity = item.quantity <= 0 ? 0 : item.quantity
+      
+      setShoppingCart([...shoppingCart.slice(0, index), item, ...shoppingCart.slice(index+1, shoppingCart.length)]);
+      
+    } else {
+      setShoppingCart(shoppingCart => [...shoppingCart, {id: productId, quantity: 1}]);
+    }
+
   }
+
+  function handleOnToggle() {
+    isOpen ? setIsOpen(false) : setIsOpen(true)
+  }
+
+  function handleOnCheckoutFormChange() {
+    console.log('i do nothing')
+  }
+  function handleOnSubmitCheckoutForm() {
+    console.log('i do nothing!')
+  }
+
 
 
   return (
@@ -56,8 +96,18 @@ export default function App() {
       <BrowserRouter>
         <main>
 
-            <Navbar />
-            <Sidebar />
+            <Navbar isOpen={isOpen}/>
+
+            <Sidebar 
+            handleOnToggle={handleOnToggle} 
+            isOpen={isOpen}
+            shoppingCart={shoppingCart}
+            setShoppingCart={setShoppingCart}
+            products={products}
+            checkoutForm={checkoutForm}
+            handleOnCheckoutFormChange={handleOnCheckoutFormChange} //new
+            handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} //new
+            />
        
           <Routes>
             <Route path="/" element={
@@ -67,10 +117,21 @@ export default function App() {
                 products={products} 
                 handleAddItemToCart={handleAddItemToCart} 
                 handleRemoveItemToCart ={handleRemoveItemToCart}
+                isOpen={isOpen}
+                shoppingCart={shoppingCart}
               />
 
             }/>
-            <Route path="/products/:productId" element={<ProductDetail />} />
+            <Route path="/products/:productId" 
+              element={
+                <ProductDetail 
+                  products={products} 
+                  handleAddItemToCart={handleAddItemToCart} 
+                  handleRemoveItemToCart ={handleRemoveItemToCart}
+                  shoppingCart={shoppingCart}
+                />
+              } 
+            />
             <Route path="*" element={<NotFound />}/>
           </Routes>
 

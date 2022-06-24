@@ -2,11 +2,12 @@ import React from 'react'
 import ProductCard from '../ProductCard/ProductCard'
 
 function ProductView(props) {
-    let {product} = props.product
+    
     let {productId} = props.productId
-    let {quantity} = props.quantity
-    let {handleAddItemToCart} = props.handleAddItemToCart 
-    let {handleRemoveItemToCart} = props.handleRemoveItemToCart 
+    let quantity = props.shoppingCart.length === 0 ? 0 : props.shoppingCart.find(prod => prod.id == props.product.id);
+    
+
+    
 
     return (
         <div className="product-view">
@@ -14,10 +15,11 @@ function ProductView(props) {
             <ProductCard 
             product ={props.product}
             productId = {props.productId}
-            quantity ={props.quantity}
+            quantity ={quantity !== 0 ? quantity : 0}
             handleAddItemToCart = {props.handleAddItemToCart}
             handleRemoveItemToCart = {props.handleRemoveItemToCart}
             showDescription={true}
+            shoppingCart={props.shoppingCart}
             />
         </div>
     )
