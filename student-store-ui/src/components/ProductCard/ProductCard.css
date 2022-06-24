@@ -1,16 +1,15 @@
 .product-card {
     padding: 20px;
-    position: relative;
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    font-weight: bold;
 }
 
 .image {
     cursor: pointer;
     border-style: solid;
-    border-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
     max-width: 300px;
     height: 300px;
     border-radius: 25px;
@@ -30,4 +29,7 @@
 .product-price, .product-name {
     padding-left: 50px;
 
+}
+.add-remove-btns {
+    display: flex;
 }

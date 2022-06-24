@@ -12,9 +12,14 @@ router.get('/store', (req, res) => {
 
 router.get('/store/:productId', async (req,res) => {
     let productId = req.params.productId
-    
-   
     res.status(200).json(await Store.getProductById(productId))
+})
+
+router.post('/store', async (req, res) => {
+    let user = req.body.user
+    let shoppingCart = req.body.shoppingCart
+
+    await Store.makePurchase(user, shoppingCart)
 })
 
 module.exports = router

@@ -20,9 +20,11 @@ function ProductCard(props) {
       <Link className='media' to={`/products/${props.product.id}`}> 
         <img className='image' src={props.product.image}></img>
       </Link>
+      <div className='add-remove-btns'>
+        <button className='add' onClick={() => props.handleAddItemToCart(props.product.id)}>+</button>
+        <button className='remove' onClick={() => props.handleRemoveItemToCart(props.product.id)}>-</button>
+      </div>
       <div className='product-quantity'> {quantity} </div>
-      <button className='add' onClick={() => props.handleAddItemToCart(props.product.id)}>+</button>
-      <button className='remove' onClick={() => props.handleRemoveItemToCart(props.product.id)}>-</button>
 
     </div>
   )

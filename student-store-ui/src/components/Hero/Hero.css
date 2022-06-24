@@ -1,0 +1,17 @@
+.hero {
+    background-color: #00c385;
+    display: flex;
+}
+.hero-image {
+    margin-left: 100px;
+    border-color: #00c385;
+}
+
+.hero-text {
+    color: white;
+    margin-left: 10px;
+}
+
+#hero-img {
+    border-color: #00c385;
+}

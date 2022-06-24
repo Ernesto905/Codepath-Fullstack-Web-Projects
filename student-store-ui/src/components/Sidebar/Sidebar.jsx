@@ -2,6 +2,7 @@ import * as React from "react"
 import "./Sidebar.css"
 import ShoppingCart from "../ShoppingCart/ShoppingCart"
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
+import Reciept from "../Reciept/Reciept"
 
 
 
@@ -24,7 +25,17 @@ export default function Sidebar(props) {
         />
         
       : null}
-      {props.isOpen ? <CheckoutForm /> : null}
+      {props.isOpen ? <CheckoutForm 
+        isOpen={props.isOpen}
+        shoppingCart={props.shoppingCart}
+        checkoutForm={props.checkoutForm}
+        handleOnCheckoutFormChange={props.handleOnCheckoutFormChange}
+        handleOnSubmitCheckoutForm={props.handleOnSubmitCheckoutForm}
+        /> : null}
+
+        {
+          props.reciept !== '' && props.isOpen ? <Reciept products={props.products} reciept={props.reciept}/>: null
+        }
     </section>
   )
 }

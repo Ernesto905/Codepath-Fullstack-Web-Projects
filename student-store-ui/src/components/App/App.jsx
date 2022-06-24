@@ -22,7 +22,8 @@ export default function App() {
   const [error, setError] = useState(null)
   const [isOpen, setIsOpen] = useState(false) //for sidebar
   const [shoppingCart, setShoppingCart] = useState([])
-  const [checkoutForm, setCheckoutForm] = useState(null)
+  const [checkoutForm, setCheckoutForm] = useState({email: '', name: ''})
+  const [reciept, setReciept] = useState('')
 
   //Connect to API  
   try{
@@ -41,59 +42,58 @@ export default function App() {
   
 
   //handler functions
+  
+  
   function handleAddItemToCart(productId) {
+    const exist = shoppingCart.find(x => x.id === productId);
     
-    if(shoppingCart.some(product => product.id === productId)) {
-
-      const index = shoppingCart.findIndex(object => object.id === productId);
-      let item = shoppingCart[index];
-
-      item.quantity++;
-      
-      setShoppingCart([...shoppingCart.slice(0, index), item, ...shoppingCart.slice(index+1, shoppingCart.length)]);
+    if(exist) {
+      setShoppingCart(shoppingCart.map((x) => x.id === productId ? {...exist, quantity: exist.quantity + 1} : x)
+      );
       
     } else {
-      setShoppingCart(shoppingCart => [...shoppingCart, {id: productId, quantity: 1}]);
+      setShoppingCart([...shoppingCart, { id: productId, quantity: 1 }])
     }
-    // console.log('shopping cart', shoppingCart)
-    
   }
 
   function handleRemoveItemToCart(productId) {
-    
-    if(shoppingCart.some(product => product.id === productId)) {
-
-      const index = shoppingCart.findIndex(object => object.id === productId);
-
-      let item = shoppingCart[index];
-
-      item.quantity--;
-
-      item.quantity = item.quantity <= 0 ? 0 : item.quantity
-      
-      setShoppingCart([...shoppingCart.slice(0, index), item, ...shoppingCart.slice(index+1, shoppingCart.length)]);
-      if (item.quantity === 0) {
-        setShoppingCart([...shoppingCart.slice(0, index), ...shoppingCart.slice(index+1, shoppingCart.length)]);
-        console.log("shoppingCart", shoppingCart);
-      }
+    const exist = shoppingCart.find((x) => x.id == productId);
+    if(exist.quantity === 1) {
+      setShoppingCart(shoppingCart.filter((x) => x.id !== productId))
     } else {
-      setShoppingCart(shoppingCart => [...shoppingCart, {id: productId, quantity: 1}]);
+      setShoppingCart(shoppingCart.map((x) => x.id === productId ? {...exist, quantity: exist.quantity - 1} : x));
     }
-    
-    
-    
-
   }
 
   function handleOnToggle() {
     isOpen ? setIsOpen(false) : setIsOpen(true)
+    if (isOpen == false) {
+      setReciept('')
+    }
   }
 
-  function handleOnCheckoutFormChange() {
-    console.log('i do nothing')
+  function handleOnCheckoutFormChange(name, value) {
+    setCheckoutForm({...checkoutForm, [name] : value})
   }
-  function handleOnSubmitCheckoutForm() {
-    console.log('i do nothing!')
+
+  async function handleOnSubmitCheckoutForm(value) {
+    console.log('testing')
+    setReciept(shoppingCart)
+   
+    //we want to send the checkoutForm and the shopping cart 
+    try{
+      await axios.post('http://localhost:3002/store', {user : checkoutForm, shoppingCart : shoppingCart}).then(
+        //reset state variables
+        setShoppingCart([]),
+        setCheckoutForm({email: '', name: ''})
+      )
+      
+    } catch (error) {
+      console.log(error)
+    }
+
+
+    
   }
 
 
@@ -114,7 +114,9 @@ export default function App() {
             products={products}
             checkoutForm={checkoutForm}
             handleOnCheckoutFormChange={handleOnCheckoutFormChange} //new
-            handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} //new
+            handleOnSubmitCheckoutForm={handleOnSubmitCheckoutForm} 
+            reciept={reciept}
+            setReciept={setReciept}
             />
        
           <Routes>
@@ -142,6 +144,7 @@ export default function App() {
             />
             <Route path="*" element={<NotFound />}/>
           </Routes>
+          
 
 
         </main>

@@ -11,7 +11,7 @@ export default function Navbar(props) {
   return (
     <nav className={`navbar` + open}>
       <div className="content">
-        <h1 className="store-name">I am the Header/Navbar</h1>
+        <h1 className="store-name">.d</h1>
         <Link to="/"> <Logo /> </Link>
         
         <div className="socials"></div>
@@ -22,11 +22,11 @@ export default function Navbar(props) {
 
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/#about">About</Link>
 
             </li>
             <li>
-              <Link to="/products">Products</Link>
+              <Link to="/#products">Products</Link>
 
             </li>
           </ul>

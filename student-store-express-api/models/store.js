@@ -1,8 +1,6 @@
-const data = require('../data/db.json')
 const { storage } = require("../data/storage")
 
 class Store {
-
     
 
     static pullData() {
@@ -12,13 +10,36 @@ class Store {
 
     static async getProductById(id) {
 
-        let dog = storage.get("products").find({id: Number(id)}).value();
+        let product = storage.get("products").find({id: Number(id)}).value();
 
-        console.log(dog)
-        return dog
+        return product
+    }
+
+
+
+
+    
+
+    static async makePurchase(user, shoppingCart) {
+        //configure purchase information
+        let purchase = []
+        const purchasedAt = new Date().toISOString();
         
+        shoppingCart.forEach(element => {
+            purchase.push(this.getProductById(element.id))
+        });
+        console.log('purchases is ', purchase)
+        
+        await storage.get("purchases").push({
+            id : 1,
+            name: user.name,
+            email: user.email,
+            order: shoppingCart,
+            createdAt : purchasedAt,
+            purchase : purchase,
+        }).write()
 
-       
+        
     }
 }
 
