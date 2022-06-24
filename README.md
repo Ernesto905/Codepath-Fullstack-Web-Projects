@@ -68,7 +68,7 @@ The following specifications were met on the Express backend and the React front
             it should create an error message and store it in the `error` state variable.
   - [x] The `App.jsx` component should define handler functions to be passed as props to the `Home` and `ProductDetail` components.
     - [x] Define as many as are needed.
-    - [] At minimum, **create these five handlers**:
+    - [ ] At minimum, **create these five handlers**:
       - [x] The **`handleOnToggle`** function. When called...
         - [x] It should toggle the open/closed state of the `Sidebar`.
       - [ ] The **`handleAddItemToCart`** function. When called...
@@ -77,9 +77,9 @@ The following specifications were met on the Express backend and the React front
         - [x] If it does exist, it should increase the quantity by `1`.
         - [ ] It should add the price of the product to the total price of the `shoppingCart`.
       - [ ] The **`handleRemoveItemFromCart`** function. When called...
-        - [ ] It should accept a single argument - `productId`
-        - [ ] It should decrease the quantity of the item in the `shoppingCart` by `1`, but only if it already exists.
-        - [ ] If it doesn't exist, the function should do nothing.
+        - [x] It should accept a single argument - `productId`
+        - [x] It should decrease the quantity of the item in the `shoppingCart` by `1`, but only if it already exists.
+        - [x] If it doesn't exist, the function should do nothing.
         - [ ] If the new quantity is `0`, it should remove the item from the `shoppingCart`
       - [ ] The **`handleOnCheckoutFormChange`** function. When called...
         - [ ] It should receive two arguments:
@@ -183,12 +183,12 @@ The following specifications were met on the Express backend and the React front
   - [x] Should render two `buttons` elements...
     - [x] One button with a `className` of `add`. When clicked, it should call the `handleAddItemToCart` function with the `id` of the `product` as its only argument.
     - [x] One button with a `className` of `remove`. When clicked, it should call the `handleRemoveItemFromCart` function with the `id` of the `product` as its only argument.
-  - [ ] Should display the current quantity of items that the user has selected in their shopping cart. The quantity should be rendered inside an element with the `className` of `product-quantity`. If none of that particular item have been added to the shopping cart, it should render nothing there.
+  - [x] Should display the current quantity of items that the user has selected in their shopping cart. The quantity should be rendered inside an element with the `className` of `product-quantity`. If none of that particular item have been added to the shopping cart, it should render nothing there.
 
 **Sidebar.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `section` element with the `className` of `sidebar`
-  - [ ] Should accept **at least** the following props (and probably a few more):
+  - [x] Should render JSX that is wrapped by a `section` element with the `className` of `sidebar`
+  - [x] Should accept **at least** the following props (and probably a few more):
     - `isOpen` - boolean representing the open/closed state of the Sidebar
     - `shoppingCart` - the active user's cart formatted as an array of objects with `itemId` and `quantity` keys
     - `products` - the array of products fetched from the API
@@ -196,19 +196,19 @@ The following specifications were met on the Express backend and the React front
     - `handleOnCheckoutFormChange` - handler function to update the `checkoutForm` object
     - `handleOnSubmitCheckoutForm` - handler function to submit the user's order to the API
     - `handleOnToggle` - handler function to toggle open/closed `Sidebar` state
-  - [ ] It should always render a `button` element with the `className` of `toggle-button`. When that button is clicked it should change the `isOpen` prop by calling the `handleOnToggle` prop.
-  - [ ] When the sidebar is opened, it should display the `ShoppingCart` and `CheckoutForm` components and should be wider than `350px`.
-  - [ ] When the sidebar is closed, it should only render the toggle button and shouldn't be wider than `150px`.
+  - [x] It should always render a `button` element with the `className` of `toggle-button`. When that button is clicked it should change the `isOpen` prop by calling the `handleOnToggle` prop.
+  - [x] When the sidebar is opened, it should display the `ShoppingCart` and `CheckoutForm` components and should be wider than `350px`.
+  - [x] When the sidebar is closed, it should only render the toggle button and shouldn't be wider than `150px`.
 
 **ShoppingCart.jsx**
 
-  - [ ] Should render JSX that is wrapped by a `div` element with the `className` of `shopping-cart`
-  - [ ] Should accept **at least** the following props (and probably a few more):
+  - [x] Should render JSX that is wrapped by a `div` element with the `className` of `shopping-cart`
+  - [x] Should accept **at least** the following props (and probably a few more):
     - `isOpen` - boolean representing the open/closed state of the Sidebar
     - `products` - the array of products fetched from the API
     - `shoppingCart` - the active user's cart formatted as an array of objects with `itemId` and `quantity` keys
   - [ ] For every item in the `shoppingCart`:
-    - [ ] It should display the `name` of the item in an element with the `className` of `cart-product-name`. Remember that items in the `shoppingCart` prop will **only** contain the `itemId` and `quantity` fields. Other props will have to be used to conver the `itemId` field to the `product`'s name.
+    - [x] It should display the `name` of the item in an element with the `className` of `cart-product-name`. Remember that items in the `shoppingCart` prop will **only** contain the `itemId` and `quantity` fields. Other props will have to be used to conver the `itemId` field to the `product`'s name.
     - [ ] It should display the `quantity` of the item in an element with the `className` of `cart-product-quantity`
   - [ ] It add up the cost of all items (make sure to use the quantity of the item requested), and render that amount **rounded up to exactly 2 decimal places** inside an element with the `className` of `subtotal`. Make sure it is prefixed with a dollar sign ($)!
   - [ ] It should calculate the cost of taxes on that subtotal (using 8.75% as the tax rate), add that amount to the subtotal, and render the total cost **rounded up to exactly 2 decimal places** inside an element with the `className` of `total-price`. Make sure it is prefixed with a dollar sign ($)!
