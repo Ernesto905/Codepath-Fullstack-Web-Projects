@@ -79,7 +79,7 @@ export default function App() {
 
   async function handleOnSubmitCheckoutForm(value) {
     console.log('testing')
-    setReciept(shoppingCart)
+    setReciept(shoppingCart, checkoutForm)
    
     //we want to send the checkoutForm and the shopping cart 
     try{

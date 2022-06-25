@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Reciept.css"
 
 function Reciept(props) {
 
@@ -31,13 +32,17 @@ function Reciept(props) {
                 final += (total*0.0875)
                 return (
                     <div className='individual-product'>
+                        
                         <div className='cart-product-name'>{`Product name: ${productDetails.name} `}</div>
                         <div className='cart-product-quantity'>{`Quantity: ${item.quantity} `}</div>
-                        <div className=' subtotal'>{`Subtotal $${total.toFixed(2)}`}</div>
-                        
+                        <div className=' subtotal'>{`Item cost: $${total.toFixed(2)}`}</div>
                     </div>
                 )
-            })}
+            }
+            )
+        }
+        <div className='taxes'>{`Your taxes: $${taxes.toFixed(2)}`}</div>
+        <div className='total'>{`Your total is: $${final.toFixed(2)}`}</div>
 
         </div>
     )

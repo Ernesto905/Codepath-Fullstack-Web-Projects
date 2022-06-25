@@ -12,11 +12,32 @@
 #About {
   border-style: solid;
 
-  height: 500px;
+  height: 350px;
+  
+  margin-bottom: 100px;
+
+}
+
+.about-content{
+  display: flex;
+}
+
+.text {
+  display:grid
 }
 
 #Contact {
   border-style: solid;
 
   height : 300px;
+}
+
+.contact-content {
+  display: flex
+}
+
+.happy-woman-img {
+  margin-left: 400px;
+  float: right;
+
 }
