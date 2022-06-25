@@ -5,11 +5,10 @@
 Selling merchandise in the modern era requires digital solutions. For this project, you'll be tasked with designing and constructing an online student store for the College of Codepath. The application entails a frontend user interface for potential customers to peruse the goods, and a backend API to handle data management. The API will be built with Node and Express and the UI will be built with React.
 
 // Include your gif here
-#### Base webpage layout
+#### First Week front end
 <img src="http://g.recordit.co/ujKmV7R5U5.gif" width = 500><br>
-#### Search and category features
-<img src="http://g.recordit.co/nw3YXxeU2Y.gif" width = 500><br>
-
+#### Second week backend functionality
+<img src="http://g.recordit.co/07pQQKecee.gif" width = 500><br>
 
 ### Application Features
 
@@ -288,10 +287,10 @@ The following specifications were met on the Express backend and the React front
 
 ### Reflection Questions
 #### 1. Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in you weeekly assignment did you feel unprepared to complete. 
-Though React and Express are both dense frameworks, The labs were pretty comprehensive in reviewing the material.
+Though React and Express are both dense frameworks, The labs were pretty comprehensive in covering the material required to 
 
 #### 2. If you had more time what would you have done differently? Would you have added additional features? Changed teh way your project responded to a particular event, etc.
 If I had more time I would have done a better job with the CSS. I would also have implemented additional stretch features. 
 
 #### 3. Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? DId you notice something that your peer did that you would like to do next time? 
-Since my demo was done over email due to personal manners, I was unable to compare with my pod mates and fellow interns. Nevertheless, I hoped to have done a better job on the styling front. After all, what clients and customers first notice about a webpage is its UI and UX. I know for next time to dedicate more time to website aesthetics and user usability.  
+I hoped to have done a better job on the styling front. Many of my peers put a great deal more effort into the front end UX. I hope to learn from them and further develop my skillsets on the styling front. 
