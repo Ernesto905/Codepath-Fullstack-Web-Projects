@@ -1,6 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
+const { PORT } = require('./config')
+
 const { BadRequestError, NotFoundError } = require('./utils/errors')
 
 
@@ -12,6 +14,7 @@ app.use(cors())
 app.use(express.json())
 //log request data info
 app.use(morgan('tiny'))
+
 
 app.use((req, res, next) => {
     return next(new NotFoundError())
@@ -26,7 +29,7 @@ app.use((err, req, res, next) => {
     })
 })
 
-const PORT = process.env.PORT || 3001
+
 
 app.listen(PORT, () => {
     console.log(`server running on http://localhost:${PORT}`)
