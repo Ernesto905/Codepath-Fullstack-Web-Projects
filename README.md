@@ -23,6 +23,39 @@ Building this application you will accomplish the following:
 
 ## Application Features
 
+
+### Core Features
+
+- [x] **The Nav Bar:** Implement customized views for users who are logged in vs not logged in.
+  - [x] If the user is logged in, it should display a **Sign Out** button. 
+  - [x] If no user is logged in, it should display **Login** and **Register** buttons
+  - [x] Display a logo on the far left side, and contain links to the individual detailed activity page. 
+- [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
+- [x] **Login Page:** A form that allows users to login with email and password.
+- [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
+- [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
+- [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
+- [ ] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
+- [ ] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
+- [ ] Deployed website with Heroku & Surge. 
+
+**Detailed Activity Page:**
+- [ ] The detailed activity page should display a feed of all previous tracked activities.
+- [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
+- [ ] The activity tracked should be given a unique id for easy lookup.
+  `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
+  * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
+
+### Stretch Features
+
+Implement any of the following features to improve the application:
+- [ ] Each model (`nutrition`, `exercise`, and `sleep`) should also implement a `fetchById` method that queries the database for a record by its id and only serves it to users who own that resource. Create a new dynamic route on the frontend that displays detail about a single record. For instance, `nutrition/detail/:id` should show a page with all the information about a single nutrition item.
+- [ ] Provide a dropdown that allows users to filter activity based on a certain attribute of any activity item.
+- [ ] Calculate aggregate statistics based on time periods - such as daily, weekly, monthly aggregates.
+- [ ] Create a page that shows all other users that use the life tracker application and allow users to follow each other.
+
+
+
 This assignment asks SITE interns to accomplish the following:
 
 ### Frontend
@@ -110,7 +143,7 @@ The components in the `App.jsx` file should render the following components (alo
     - [x] Should be wrapped by an element with the `className` of `app`
     - [ ] The core App component that contains the routes for the app wrapped in Context providers
     - [x] Renders the `Navbar` component on every route
-    - [ ] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
+    - [x] Renders a `BrowserRouter` component that contains a `Routes` component with the following routes:
       - [x] `/` - Should render the `Landing.jsx` component
       - [x] `/login` - Should render the `LoginPage.jsx` component
       - [x] `/register` - Should render the `RegistrationPage.jsx` component
@@ -195,14 +228,14 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginForm.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-form`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `login-form`
     - [ ] Should render an input element for the following fields:
       - [ ] `email`
       - [ ] `password`
-    - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`email`, `password`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
-      - [ ] `value` - the current value of the `input` element
+    - [x] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
+      - [x] `name` - the `name` of the `input` field being rendered (`email`, `password`)
+      - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [x] `value` - the current value of the `input` element
       - [ ] `onChange` - the `onChange` handler function
     - [ ] The component should validate the `email` field:
       - [ ] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
@@ -215,25 +248,25 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`LoginPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `login-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `login-page`
     - [ ] Using either a custom hook, context, or manually set state, this component should check to see if a user is already logged in
-      - [ ] If the user is already logged in, it should redirect them to the `/activity` page
+      - [x] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `LoginForm.jsx` component and pass it any props it needs
 
   - [ ] The **`RegistrationForm.jsx`** component:
 
     - [ ] Should render JSX that is wrapped by an element with the `className` of `registration-form`
     - [ ] Should render an input element for the following fields:
-      - [ ] `email`
-      - [ ] `username`
-      - [ ] `firstName`
-      - [ ] `lastName`
-      - [ ] `password`
-      - [ ] `passwordConfirm`
+      - [x] `email`
+      - [x] `username`
+      - [x] `firstName`
+      - [x] `lastName`
+      - [x] `password`
+      - [x] `passwordConfirm`
     - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
-      - [ ] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
-      - [ ] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
-      - [ ] `value` - the current value of the `input` element
+      - [x] `name` - the `name` of the `input` field being rendered (`email`, `username`, `firstName`, `lastName`, `password`, `passwordConfirm`)
+      - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
+      - [x] `value` - the current value of the `input` element
       - [ ] `onChange` - the `onChange` handler function
     - [ ] The component should validate the `email` field:
       - [ ] If the user has entered text into the `email` field and it doesn't contain an `@` symbol, then an error message should be displayed in an element with the `className` of `error` indicating that the entry is not a valid email.
@@ -248,7 +281,7 @@ The components in the `App.jsx` file should render the following components (alo
 
   - [ ] The **`RegistrationPage.jsx`** component:
 
-    - [ ] Should render JSX that is wrapped by an element with the `className` of `registration-page`
+    - [x] Should render JSX that is wrapped by an element with the `className` of `registration-page`
     - [ ] Using either a custom hook, context, or manually handled state, this component should check to see if a user is already logged in
       - [ ] If the user is already logged in, it should redirect them to the `/activity` page
       - [ ] If no user is authenticated, it should render the `RegistrationForm.jsx` component and pass it any props it needs
@@ -257,7 +290,7 @@ The components in the `App.jsx` file should render the following components (alo
 
     - [ ] Should render JSX that is wrapped by an element with the `className` of `landing-page`
     - [ ] Should render an element with the `className` of `hero`
-      - [ ] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
+      - [x] Inside it, display a large hero image using an `img` element with the `className` of `hero-img`
       - [ ] Render a brief blurb on what this application is about inside an element with the `className` of `cta`
     - [ ] Should allow unauthenticated access
 
@@ -441,23 +474,23 @@ Note that when developing the backend, SITE interns will be asked to write tests
 Here are the pieces of functionality that should be built out for the backend:
 
 - **Project setup**
-  - [ ] First things first, bootstrap the Express application with some essential files and starter code
-  - [ ] Create a `.gitignore` file, an `app.js` file, an `app.test.js` file, and a `server.js` file
-  - [ ] Make sure `node_modules` are added to the `.gitignore` file.
-  - [ ] Add dependencies for `express@next`, `morgan`, `cors`, and `nodemon`
-  - [ ] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
-  - [ ] Commit all work to `git`
+  - [x] First things first, bootstrap the Express application with some essential files and starter code
+  - [x] Create a `.gitignore` file, an `app.js` file, an `app.test.js` file, and a `server.js` file
+  - [x] Make sure `node_modules` are added to the `.gitignore` file.
+  - [x] Add dependencies for `express@next`, `morgan`, `cors`, and `nodemon`
+  - [x] Install new dependencies for `bcrypt`, `jsonwebtoken`, `colors`, `dotenv`, `pg`
+  - [x] Commit all work to `git`
   - [ ] Add a `.env` file to the root of the repo and include the following environment variables
-    - [ ] `PORT` (default to `3001`)
-    - [ ] `SECRET_KEY` (set to a long random string)
-    - [ ] `BCRYPT_WORK_FACTOR` (set to `13`)
-    - [ ] `DATABASE_USER`
-    - [ ] `DATABASE_PASS`
-    - [ ] `DATABASE_HOST`
-    - [ ] `DATABASE_PORT`
-    - [ ] `DATABASE_NAME` - (set to `lifetracker`)
-    - [ ] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
-  - [ ] Add a `config.test.js` file
+    - [x] `PORT` (default to `3001`)
+    - [x] `SECRET_KEY` (set to a long random string)
+    - [x] `BCRYPT_WORK_FACTOR` (set to `13`)
+    - [x] `DATABASE_USER`
+    - [x] `DATABASE_PASS`
+    - [x] `DATABASE_HOST`
+    - [x] `DATABASE_PORT`
+    - [x] `DATABASE_NAME` - (set to `lifetracker`)
+    - [x] `DATABASE_TEST_NAME` - (set to `lifetracker_test`)
+  - [x] Add a `config.test.js` file
     - [ ] Write tests that check to make sure that:
       - [ ] `process.env.NODE_ENV` is set to `test` when the test suite is run
       - [ ] There is an `IS_TESTING` variable that is exported, which should only be true if `process.env.NODE_ENV` is set to `test`
@@ -516,22 +549,22 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Commit all work to `git`
   - [ ] A database client is now ready to be used!
 - **Server**
-  - [ ] Build out a bare-bones Express server with a healthcheck route and an adequate middleware pipeline.
+  - [x] Build out a bare-bones Express server with a healthcheck route and an adequate middleware pipeline.
   - [ ] Create a `utils` directory
-    - [ ] In the `utils` directory, create an `errors.js` file.
-    - [ ] Create error classes inside the file that will be used throughout the app.
+    - [x] In the `utils` directory, create an `errors.js` file.
+    - [x] Create error classes inside the file that will be used throughout the app.
   - [ ] In the `app.test.js` file, write tests that:
     - [ ] Ensure that the Express application responds to `GET` requests to the `/` route with a JSON object of `{ "ping": "pong" }`
     - [ ] Check that middleware like `morgan` and `cors` exist, along with the JSON `body-parser` middleware from `express`
     - [ ] Include an `afterAll` hook that calls `await db.end()` so that any open database connections close when all the tests are finished.
-  - [ ] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
-  - [ ] Create error classes inside the `utils/errors.js` file.
-  - [ ] Add `404` and generic error handler middlewares to the `app.js` file.
+  - [x] Add code to the `app.js` and `server.js` file to get a simple server running along with responding to `GET` requests to the `/` route
+  - [x] Create error classes inside the `utils/errors.js` file.
+  - [x] Add `404` and generic error handler middlewares to the `app.js` file.
   - [ ] In the `server.js` file:
-    - [ ] Import the Express app and the `config.js` file
-    - [ ] Have the `app` listen on the port specified by `config.PORT`.
-  - [ ] Commit all work to `git`
-  - [ ] Test out the fancy new Express server by starting it up in a new terminal window!
+    - [x] Import the Express app and the `config.js` file
+    - [x] Have the `app` listen on the port specified by `config.PORT`.
+  - [x] Commit all work to `git`
+  - [x] Test out the fancy new Express server by starting it up in a new terminal window!
 - **Common Test Configuration**
   - [ ] It would probably be helpful to create some common test functions that can be used throughout the application's testing suite.
   - [ ] Create a new directory called `tests`
@@ -557,7 +590,7 @@ Here are the pieces of functionality that should be built out for the backend:
   - [ ] Go ahead and build out a full-fledged authentication flow using PostgreSQL, `bcrypt`, and JSON Web Tokens. For it all to work, we'll need a `User` model, a `security` middleware, some `tokens` utility functions, and the appropriate `auth` routes.
   - [ ] Add new directories for `models`, `routes`, and `middleware`
   - [ ] The **User** model
-    - [ ] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
+    - [x] In the `models` directory, create two new files: `models/user.js` and `models/user.test.js`
       - [ ] The `User` model should have **at least** the following static methods:
         - [ ] `login`
         - [ ] `register`
@@ -617,7 +650,7 @@ Here are the pieces of functionality that should be built out for the backend:
     - [ ] In the `app.js` file, add the `Authentication` header parsing middleware to the Express app's middleware pipeline
   - [ ] Commit all work to `git`
   - [ ] The **/auth** routes
-    - [ ] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
+    - [x] In the `routes` directory, create two new files: `routes/auth.js` and `routes/auth.test.js`
       - [ ] A new Express router should be created. It should handle:
         - [ ] A `GET` request to the `/me` endpoint
           - [ ] It should send a JSON response back to the client with the user info like so: `{ "user": { "email": "user@gmail.com", ... } }`
