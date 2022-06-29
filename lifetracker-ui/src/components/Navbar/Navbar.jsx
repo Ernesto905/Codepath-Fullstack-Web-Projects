@@ -11,7 +11,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import "./Navbar.css"
 import CPLogo from '../../../images/CPLogo.svg'
 
-function Navbar() {
+function Navbar(props) {
   return (
     <div className="Navbar">
         <div className="content">
@@ -19,7 +19,7 @@ function Navbar() {
         
           <Link to="/"> <Logo /> </Link>
             
-          <NavLinks/>
+          <NavLinks setIsLoggedIn={props.setIsLoggedIn} isLoggedIn={props.isLoggedIn}/>
 
         </div>
     </div>

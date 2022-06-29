@@ -1,0 +1,8 @@
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.user-name {
+    grid-gap: 20px;
+}
