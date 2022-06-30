@@ -33,10 +33,10 @@ Building this application you will accomplish the following:
 - [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
 - [x] **Login Page:** A form that allows users to login with email and password.
 - [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
-- [ ] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
+- [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
 - [ ] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
 - [ ] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
-- [ ] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
+- [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] Deployed website with Heroku & Surge. 
 
 **Detailed Activity Page:**
@@ -389,7 +389,7 @@ The components in the `App.jsx` file should render the following components (alo
       - [ ] If the `error` state variable has a valid string in it, it should render the `error` message inside an element with the `className` of `error`
       - [ ] If the `isLoading` boolean is `true`, it should render the `Loading.jsx` component
       - [ ] If the `isLoading` boolean is `false`, it should render the `NutritionFeed.jsx` component and pass it the appropriate props
-    - [ ] Near the top of the component, it should render a `Link` component that directs to the `/nutrition/create` route and contains the text: `"Record Nutrition"`
+    - [x] Near the top of the component, it should render a `Link` component that directs to the `/nutrition/create` route and contains the text: `"Record Nutrition"`
 
   - [ ] The **`NutritionFeed.jsx`** component:
 
@@ -408,12 +408,12 @@ The components in the `App.jsx` file should render the following components (alo
   - [ ] The **`NutritionForm.jsx`** component:
 
     - [x] Should render JSX that is wrapped by an element with the `className` of `nutrition-form`
-    - [ ] Should render an input element for the following fields:
-      - [ ] `name` - name of the nutrition item (defaults to an empty string)
-      - [ ] `calories` - number of calories in the nutrition item (defaults to 1)
-      - [ ] `imageUrl` - the `url` of an image to show for this nutrition item (defaults to an empty string)
-      - [ ] `category` - the category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. (defaults to an empty string)
-    - [ ] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
+    - [x] Should render an input element for the following fields:
+      - [x] `name` - name of the nutrition item (defaults to an empty string)
+      - [x] `calories` - number of calories in the nutrition item (defaults to 1)
+      - [x] `imageUrl` - the `url` of an image to show for this nutrition item (defaults to an empty string)
+      - [x] `category` - the category that this nutrition item belongs to, like fruit, meat, soda, snack, nuts, etc. (defaults to an empty string)
+    - [x] Each `input` element in the form should have a `className` of `form-input` and should have the following props set:
       - [x] `name` - the `name` of the `input` field being rendered (`name`, `calories`, `imageUrl`, `category`)
       - [x] `type` - the type of the `input` element (`text`, `email`, `number`, etc)
       - [x] `value` - the current value of the `input` element
@@ -689,12 +689,12 @@ Here are the pieces of functionality that should be built out for the backend:
 - **Resources and Permissions**
   - [ ] Next, implement the functionality to allow users to save instances of things they've drank/eaten, so that they can track their own nutrition data! Also make sure users can only access the data that they themselves have created. No other user should be able to see any data owned by another user!
   - [ ] The **Nutrition** model
-    - [ ] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
+    - [x] In the `models` directory, create two new files: `models/nutrition.js` and `models/nutrition.test.js`
       - [ ] The `Nutrition` model should have **at least** the following static methods:
         - [ ] `createNutrition`
-          - [ ] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`, and `"image_url"`. The `quantity` field should default to `1`.
+          - [x] Should insert a new nutrition instance into the database when values are supplied for all of the required fields: `"name"`, `"category"`, `"calories"`,               and `"image_url"`. The `quantity` field should default to `1`.
           - [ ] The new nutrition instance should have its `user_id` field set to the `id` of the authenticated user
-          - [ ] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
+          - [x] Should throw a `BadRequestError` (`400` status code) or `UnprocessableEntityError` (`422` status code) when any of those values are not supplied.
         - [ ] `fetchNutritionById`
           - [ ] When supplied with a valid `id`, fetches the a nutrition instance from the database that matches that `id`.
           - [ ] If no nutrition instance matches that `id`, throws a `NotFoundError` (`404` status code)
@@ -736,7 +736,7 @@ Here are the pieces of functionality that should be built out for the backend:
       - [ ] Implement the features outlined in the tests until they're all passing
     - [ ] Commit all work to `git`
   - [ ] The **/nutrition** routes
-    - [ ] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
+    - [x] In the `routes` directory, create two new files: `routes/nutrition.js` and `routes/nutrition.test.js`
       - [ ] A new Express router should be created that will be mounted at the `/nutrition` endpoint. It should handle:
         - [ ] `GET` requests to the `/` endpoint
           - [ ] It should send a JSON response back to the client with all of the user-owned nutrition instances in an array like so: `{ "nutritions": [...] }`
