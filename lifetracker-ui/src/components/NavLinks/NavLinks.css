@@ -1,12 +1,22 @@
 .nav-links{
     display: inline; 
+    
      
 }
 .nav-links li{
     display: inline;
     padding: 55px;
+    padding-left: 200px;
     
 }
+
+a {
+    color: white;
+    font-size: larger;
+}
+
+
+
 
 .hidden {
     visibility: hidden;

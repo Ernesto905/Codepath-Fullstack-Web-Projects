@@ -11,8 +11,8 @@ function LoginPage( props ) {
     <div className="login-page">
       <div className="cart">
         <h1 className='login-message'>Login</h1>
+        {props.attempt ? <h3>You must be logged in</h3> : null}
         <LoginForm isLoggedIn={props.isLoggedIn} setIsLoggedIn={props.setIsLoggedIn} />
-        
       </div>
     </div>
   )

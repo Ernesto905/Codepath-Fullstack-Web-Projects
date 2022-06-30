@@ -8,11 +8,21 @@ function getDatabaseUri() {
     const dbPass = process.env.DATABASE_PASS ? encodeURI(process.env.DATABASE_PASS) : "root"
     const dbHost = process.env.DATABASE_HOST || "localhost"
     const dbPort = process.env.DATABASE_POST || 5432
-    
+    const dbName = process.env.DATABASE_NAME || "lifetracker"
 
     //test constants go here
+
+    return process.env.DATABASE_URL || `postgresql://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
 }
 
+console.log('Lifetracker Config'.red)
+console.log('Port: '.blue, PORT)
+console.log('Database:'.blue, getDatabaseUri())
+console.log('-------')
+
+
+
 module.exports = {
-    PORT
+    PORT,
+    getDatabaseUri,
 }

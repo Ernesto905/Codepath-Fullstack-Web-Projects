@@ -3,7 +3,10 @@ import "./ActivityPage.css"
 
 function ActivityPage() {
   return (
-    <div>ActivityPage</div>
+    <div className='activity-page'>
+      <h1>Activities page</h1>
+    </div>
+    
   )
 }
 

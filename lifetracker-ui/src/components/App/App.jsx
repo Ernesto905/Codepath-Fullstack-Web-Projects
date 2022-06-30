@@ -22,11 +22,9 @@ export default function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState('')
+  
 
-  function handleLogin(){
-    console.log('clicked')
-    setIsLoggedIn(true);
-  }
+  
 
   return (
     <div className="app">
@@ -42,13 +40,13 @@ export default function App() {
 
             <Route path="/" element={<LandingPage/>}/>
             {/* Login page route goes here */}
-            <Route path="/login" element={<LoginPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
+            <Route path="/login" element={<LoginPage attempt={false} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
             {/* Registration page route goes here */}
             <Route path="/register" element={<RegistrationPage/>}/>
             {/* Activity page route goes here */}
-            <Route path="/activity" element={<ActivityPage/>}/>
+            {isLoggedIn ? <Route path="/activity" element={<ActivityPage/>}/> : <Route path="/activity" element={<LoginPage attempt={true} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
             {/* Nutrition page route goes here */}
-            <Route path="/nutrition" element={<NutritionPage/>}/>
+            <Route path="/nutrition/*" element={<NutritionPage/>}/>
             {/* Not found page route goes here */}
             <Route path="/*" element={<NotFound/>}/>
 

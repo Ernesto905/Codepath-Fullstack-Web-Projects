@@ -13,12 +13,14 @@ function NavLinks(props) {
   return (
     <div className="nav-links">
         <div className='links'>
-            <li><Link to="/activity">Activity</Link></li>
-            <li><Link to="/nutrition">Nutrition</Link></li>
-            <li className={hideButton}><Link to="/login">Login</Link></li>
-            <li className={hideButton}><Link to="/register">Register</Link></li>
+          <ul>
+            <li><Link className="link" style={{textDecoration: 'none'}} to="/activity">Activity</Link></li>
+            <li><Link className="link" style={{textDecoration: 'none'}} to="/nutrition">Nutrition</Link></li>
+            <li className={hideButton}><Link className="link" style={{textDecoration: 'none'}} to="/login">Login</Link></li>
+            <li className={hideButton}><Link className="link" style={{textDecoration: 'none'}} to="/register">Register</Link></li>
             
             {props.isLoggedIn ? <button onClick={async () => props.setIsLoggedIn(false)}>SignOut</button> : null}
+          </ul>
 
             
         </div>
