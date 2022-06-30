@@ -22,6 +22,10 @@ export default function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState('')
+
+  //nutrition items
+  const [nutritionItems, setNutritionItems] = useState([{}])
+  
   
 
   
@@ -42,11 +46,12 @@ export default function App() {
             {/* Login page route goes here */}
             <Route path="/login" element={<LoginPage attempt={false} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
             {/* Registration page route goes here */}
-            <Route path="/register" element={<RegistrationPage/>}/>
+            <Route path="/register" element={<RegistrationPage setIsLoggedIn={setIsLoggedIn}/>}/>
             {/* Activity page route goes here */}
             {isLoggedIn ? <Route path="/activity" element={<ActivityPage/>}/> : <Route path="/activity" element={<LoginPage attempt={true} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
             {/* Nutrition page route goes here */}
-            <Route path="/nutrition/*" element={<NutritionPage/>}/>
+            {isLoggedIn ? <Route path="/nutrition/*" element={<NutritionPage nutritionItems={nutritionItems} setNutritionItems={setNutritionItems}/>}/> : <Route path="/nutrition" element={<LoginPage attempt={true} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
+            
             {/* Not found page route goes here */}
             <Route path="/*" element={<NotFound/>}/>
 

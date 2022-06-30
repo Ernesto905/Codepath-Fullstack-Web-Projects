@@ -4,7 +4,7 @@ import "./RegistrationPage.css"
 //import components
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm'
 
-function RegistrationPage() {
+function RegistrationPage(props) {
   return (
     <div className='registration-page'>
 
@@ -14,7 +14,7 @@ function RegistrationPage() {
       {/* If user is not logged in */}
       <div className='cart'>
         <h1 className='register-message'>Register</h1>
-        <RegistrationForm/>
+        <RegistrationForm setIsLoggedIn={props.setIsLoggedIn}/>
       </div>
       
     </div>

@@ -12,9 +12,8 @@ function LoginForm( props ) {
 
   console.log(props.isLoggedIn)
 
-  return (
+  return (  
     <div className='login-form'>
-        {/* TODO: Implement onchange function using state variables */}
         <h3>Email</h3>
         <input className='form-input' name="email" type="email" placeholder="user@gmail.com" value={emailQuery} onChange={e => setEmailQuery(e.target.value)}></input>
         <h3>Password</h3>

@@ -15,3 +15,12 @@
 .cta h1 {
     text-align: center;
 }
+
+.bottom-section {
+    display: flex;
+    margin-top: 450px;
+}
+
+.fit, .food, .rest, .plan {
+    padding: 45px;
+}

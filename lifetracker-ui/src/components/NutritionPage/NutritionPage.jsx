@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import { Link, Route, Routes, BrowserRouter } from 'react-router-dom'
 
 //components
 import NotFound from 'components/NotFound/NotFound'
@@ -12,18 +12,20 @@ import NutritionDetail from 'components/NutritionDetail/NutritionDetail'
 //styling
 import "./Nutritionpage.css"
 
-function NutritionPage() {
+function NutritionPage(props) {
   return (
 
     <div className='nutrition-page'>
       <h1>Nutrition page</h1>
       
         <Routes>
-            <Route path="/" element={<NutritionOverview/>}/>
+            <Route path="/" element={<NutritionOverview nutritionItems={props.nutritionItems} setNutritionItems={props.setNutritionItems}/>}/>
             <Route path="/create" element={<NutritionNew/>}/>
             <Route path="/id/:nutritionId" element={<NutritionDetail/>}/>
             <Route path="/*" element={<NotFound/>}/> 
         </Routes>
+
+        
       
     </div>
   )
