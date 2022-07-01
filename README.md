@@ -1,8 +1,6 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 # Week 3 Assignment: Life Tracker
 
-Submitted by: **NAME**
+Submitted by: **Ernesto**
 
 Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 
@@ -28,8 +26,8 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [ ] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
 - [ ] The activity tracked should be given a unique id for easy lookup.
 
-  `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
-  * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
+
+  * [Table Schema](https://github.com/Ernesto905/tdd-lifetracker-starter/blob/main/lifetracker-api/lifetracker-schema.sql) 
 
 ### Stretch Features
 
@@ -41,23 +39,26 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
-`ADD_EMBEDDED_CODE_HERE`
+##### Navigation bar rendering
+<img src="http://g.recordit.co/js4SvaKI62.gif" width = 500><br>
+##### Login, register, and activity page functionality
+<img src="http://g.recordit.co/7kp50oYQ0Q.gif" width = 500><br>
+##### Nutrition page functionality
+<img src="http://g.recordit.co/cICUarw9wX.gif" width = 500><br>
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-[Add your response here]
+The topics in the lab prepared me for everything but the web token authentication, which we will review next week, and deployment with Heroku and Surge.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-[Add your response here]
+If i had more time, I would've relied on the backend alot more. A great deal of the logic is done on the front end which I know is a big no-no. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-[Add your response here]
+Being able to connect to the backend was probably highlight of this project. Being asked to implement Json web tokens was not expected but was still appreciated since extending past one's comfort zones is the best remedy for growth!
 
 ### Open-source libraries used
 
@@ -67,7 +68,7 @@ Implement any of the following features to improve the application:
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-[Add your response here]
+Shout out to my partners, Aileen and Travis, for being so dependable. You guys are awesome <3
 
 
 This assignment asks SITE interns to accomplish the following:
