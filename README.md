@@ -40,11 +40,11 @@ Implement any of the following features to improve the application:
 ### Walkthrough Video
 
 ##### Navigation bar rendering
-<img src="http://g.recordit.co/js4SvaKI62.gif" width = 500><br>
+<img src="http://g.recordit.co/js4SvaKI62.gif" width = 700><br>
 ##### Login, register, and activity page functionality
-<img src="http://g.recordit.co/7kp50oYQ0Q.gif" width = 500><br>
+<img src="http://g.recordit.co/7kp50oYQ0Q.gif" width = 700><br>
 ##### Nutrition page functionality
-<img src="http://g.recordit.co/cICUarw9wX.gif" width = 500><br>
+<img src="http://g.recordit.co/hev3k8BFn3.gif" width = 700><br>
 
 ### Reflection
 
