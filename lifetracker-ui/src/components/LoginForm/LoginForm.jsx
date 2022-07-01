@@ -13,6 +13,12 @@ function LoginForm( props ) {
     password: "",
   })
 
+  const [error, setError] = useState(false)
+
+
+  //handle error
+   
+  
   //change text
   const handleOnInputChange = (event) => {
     setForm((f) => ({...f, [event.target.name] : event.target.value}))
@@ -20,6 +26,7 @@ function LoginForm( props ) {
 
   //submit and post to backend
   const handleOnSubmit = async () => {
+    setError(false)
 
     props.setIsLoggedIn(true)
       
@@ -30,8 +37,8 @@ function LoginForm( props ) {
         password: form.password,
       }) 
       
-    } catch (err) {
-      console.log("error: ", err)
+    } catch (err) { 
+      console.log("---------You have used the wrong username and password combo---------")
     }
 
   } 

@@ -36,11 +36,11 @@ function ActivityFeed(props) {
           </div>
           <div className='sleep-cat'>
             <h4>Avg Sleep hours</h4>
-            <h1>{totalCals / props.nutritionItems.length}</h1>
+            <h1>0</h1>
           </div>
           <div className='exercise-cat'>
             <h4>Total exercise minutes</h4>
-            <h1>{totalCals / props.nutritionItems.length}</h1>
+            <h1>0</h1>
           </div>
 
         </div>
