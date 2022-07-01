@@ -1,0 +1,43 @@
+
+
+.activity-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    padding-left: 600px;
+   
+}
+
+.btn {
+    
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 14px 24px 16px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    
+    background: transparent;
+    color: #ffffff;
+    box-shadow: 0 0 0 3px #ffffff inset;
+    
+    
+}
+
+.per-category {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+}
+
+.sleep-cat {
+    margin: 80px;
+}

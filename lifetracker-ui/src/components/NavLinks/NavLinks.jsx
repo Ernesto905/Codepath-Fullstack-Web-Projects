@@ -19,7 +19,7 @@ function NavLinks(props) {
             <li className={hideButton}><Link className="link" style={{textDecoration: 'none'}} to="/login">Login</Link></li>
             <li className={hideButton}><Link className="link" style={{textDecoration: 'none'}} to="/register">Register</Link></li>
             
-            {props.isLoggedIn ? <button onClick={async () => props.setIsLoggedIn(false)}>SignOut</button> : null}
+            {props.isLoggedIn ? <button className="navlink-btn" onClick={async () => props.setIsLoggedIn(false)}>SignOut</button> : null}
           </ul>
 
             

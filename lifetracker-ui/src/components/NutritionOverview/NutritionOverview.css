@@ -1,0 +1,48 @@
+.nutrition-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.nutrition-title {
+    padding-right: 850px;
+}
+
+.nutrition-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 40px;
+    border-radius: 80%;
+    
+}
+
+.nutrition-items {
+    display: flex;
+}
+
+.individual-nutrition {
+    margin: 100px;
+    padding: 40px;
+    background: rgb(44, 64, 71);
+
+    border-radius: 80%;
+    
+}
+
+.card-header {
+    display: flex;
+}
+
+.card-body {
+    display: flex;
+}
+
+.card-quantity {
+    margin-left: 40px;
+}
+
+p{
+    font-weight: bold;
+    font-size: 120%;
+}

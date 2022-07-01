@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 //styling
 import "./NutritionForm.css"
 
-function NutritionForm() {
+function NutritionForm(props) {
 
     const [form, setForm] = useState([{
         name: '',
@@ -23,6 +23,9 @@ function NutritionForm() {
 
     const handleOnSubmit = async () => {
       
+      //update nutrition
+      await props.setNutritionItems([...props.nutritionItems, form])
+
       //set up axios post request
       try {
         const res = await axios.post("http://localhost:3001/nutrition", {
@@ -37,6 +40,8 @@ function NutritionForm() {
         console.log("error: ", err)
       }
 
+
+      
     }
     
     

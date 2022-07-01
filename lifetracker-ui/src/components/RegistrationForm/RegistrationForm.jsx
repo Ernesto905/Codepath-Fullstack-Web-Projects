@@ -52,7 +52,7 @@ function RegistrationForm(props) {
 
   return (
     <div className='registration-form'>
-      <h3>Email</h3>
+      <h3>Email 📧</h3>
       <input className='form-input' name='email' type='email' value={form.email} placeholder="enter a valid email" onChange={handleOnInputChange}></input>
 
       <h3>User name</h3>
@@ -63,13 +63,13 @@ function RegistrationForm(props) {
         <input className='form-input' name='last_name' type='text' value={form.last_name} placeholder='last name' onChange={handleOnInputChange}></input>
       </div>
 
-      <h3>Password</h3>
-      <input className='form-input' name='password' type='text' value={form.password} placeholder='Enter a secure password' onChange={handleOnInputChange}></input>
+      <h3>Password 🔑</h3>
+      <input className='form-input' name='password' type='password' value={form.password} placeholder='Enter a secure password' onChange={handleOnInputChange}></input>
 
       <h3>Confirm Password</h3>
-      <input className='form-input' name='passwordConfirm' type='text' value={passwordConfirmQuery} placeholder='Confirm your password' onChange={e => setpasswordConfirmQuery(e.target.value)}></input>
+      <input className='form-input' name='passwordConfirm' type='password' value={passwordConfirmQuery} placeholder='Confirm your password' onChange={e => setpasswordConfirmQuery(e.target.value)}></input>
 
-      <Link to="/activity"><button onClick={handleOnSubmit}>Submit</button></Link>
+      <Link to="/activity"><button className='submit-btn' onClick={handleOnSubmit}>Submit</button></Link>
 
     </div>
   )

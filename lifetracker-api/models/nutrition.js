@@ -35,6 +35,10 @@ class Nutrition {
 
     }
 
+    static async getNutrition(){
+        const result = await db.query(`SELECT * FROM nutrition`);
+    }
+
 }
 
 module.exports = Nutrition

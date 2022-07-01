@@ -10,8 +10,37 @@ const BCRYPT_WORK_FACTOR = process.env.BCRYPT_WORK_FACTOR;
 
 
 class User {
-    static async login(){
-        console.log('i work')
+
+    static async makePublicUser(user) {
+        return {
+            id: user.id,
+            email: user.email,
+            first_name: user.first_name,
+            last_name: user.last_name
+        }
+    }
+
+
+    static async login(credentials){
+        //user submits email and password. If any field is missing, throw an error
+        const requiredFields = ["email", "password"]
+        requiredFields.forEach(field => {
+            if (!credentials.hasOwnProperty(field)){
+                throw new BadRequestError(`Missing ${field} in request body.`)
+            }
+        })
+
+        //find user inside the database
+        const user = await User.fetchUserByEmail(credentials.email)
+
+        if(user) {
+            const isValid = await bcrypt.compare(credentials.password, user.password)
+            if(isValid) {
+                return User.makePublicUser(user)
+            }
+        }
+        //error handling
+        throw new UnauthorizedError("Invalid email/password combo")
     }
 
     static async register(credentials){
@@ -30,11 +59,14 @@ class User {
         }
 
         //TODO make sure no user exists in the system with the email in question
+        const userExists = await User.fetchUserByEmail(credentials.email)
+        if (userExists) {
+            throw new BadRequestError(`Duplicate email: ${credentials.email}`)
+        }
 
 
         //hash user's password
         const hashedPassword = await bcrypt.hash(credentials.password, 13)
-
         //lowercase email
         const lowercasedEmail = credentials.email.toLowerCase()
 
@@ -55,8 +87,17 @@ class User {
         return user
     }
 
-    static async fetchUserByEmail(){
-        console.log('i work')
+    static async fetchUserByEmail(email){
+        if(!email){
+            throw new BadRequestError("no email provided")
+        }
+
+        const query = `SELECT * FROM users WHERE email = $1`
+
+        const result = await db.query(query, [email.toLowerCase()])
+
+        const user = result.rows[0]
+        return user
     }
 }
 module.exports = User

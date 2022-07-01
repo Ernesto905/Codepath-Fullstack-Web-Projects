@@ -20,8 +20,8 @@ function NutritionPage(props) {
       
         <Routes>
             <Route path="/" element={<NutritionOverview nutritionItems={props.nutritionItems} setNutritionItems={props.setNutritionItems}/>}/>
-            <Route path="/create" element={<NutritionNew/>}/>
-            <Route path="/id/:nutritionId" element={<NutritionDetail/>}/>
+            <Route path="/create" element={<NutritionNew nutritionItems={props.nutritionItems} setNutritionItems={props.setNutritionItems}/>}/>
+            <Route path="/id/:nutritionId" element={<NutritionDetail nutritionItems={props.nutritionItems} setNutritionItems={props.setNutritionItems}/>}/>
             <Route path="/*" element={<NotFound/>}/> 
         </Routes>
 

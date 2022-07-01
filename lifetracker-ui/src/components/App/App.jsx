@@ -24,7 +24,7 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState('')
 
   //nutrition items
-  const [nutritionItems, setNutritionItems] = useState([{}])
+  const [nutritionItems, setNutritionItems] = useState([])
   
   
 
@@ -44,11 +44,11 @@ export default function App() {
 
             <Route path="/" element={<LandingPage/>}/>
             {/* Login page route goes here */}
-            <Route path="/login" element={<LoginPage attempt={false} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
+            <Route path="/login" element={<LoginPage currentUser={currentUser} setCurrentUser={setCurrentUser} attempt={false} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>
             {/* Registration page route goes here */}
-            <Route path="/register" element={<RegistrationPage setIsLoggedIn={setIsLoggedIn}/>}/>
+            <Route path="/register" element={<RegistrationPage currentUser={currentUser} setCurrentUser={setCurrentUser} setIsLoggedIn={setIsLoggedIn}/>}/>
             {/* Activity page route goes here */}
-            {isLoggedIn ? <Route path="/activity" element={<ActivityPage/>}/> : <Route path="/activity" element={<LoginPage attempt={true} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
+            {isLoggedIn ? <Route path="/activity" element={<ActivityPage nutritionItems={nutritionItems}/>}/> : <Route path="/activity" element={<LoginPage attempt={true} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
             {/* Nutrition page route goes here */}
             {isLoggedIn ? <Route path="/nutrition/*" element={<NutritionPage nutritionItems={nutritionItems} setNutritionItems={setNutritionItems}/>}/> : <Route path="/nutrition" element={<LoginPage attempt={true} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
             
