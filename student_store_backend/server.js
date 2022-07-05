@@ -4,6 +4,7 @@ const morgan = require("morgan")
 const { PORT } = require("./config")
 const { NotFoundError } = require("./utils/errors")
 const authRoutes = require("./routes/auth")
+const security = require("./middleware/security")
 const orderRoutes = require("./routes/orders")
 const storeRoutes = require("./routes/store")
 
@@ -18,9 +19,13 @@ app.use(express.json())
 // log requests info
 app.use(morgan("tiny"))
 
+//for every request check if user exists or if a token exists in the authorization header. If it does,
+//attach the decoded user to res.local
+app.use(security.extractUserFromJwt)
+
 app.use("/auth", authRoutes)
 app.use("/order", orderRoutes)
-app.use("/store", storeRoutes)
+app.use("/store", storeRoutes) 
 
 /** Handle 404 errors -- this matches everything */
 app.use((req, res, next) => {
