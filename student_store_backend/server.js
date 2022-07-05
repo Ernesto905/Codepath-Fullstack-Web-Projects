@@ -3,8 +3,8 @@ const cors = require("cors")
 const morgan = require("morgan")
 const { PORT } = require("./config")
 const { NotFoundError } = require("./utils/errors")
-const authRoutes = require("./routes/auth")
 const security = require("./middleware/security")
+const authRoutes = require("./routes/auth")
 const orderRoutes = require("./routes/orders")
 const storeRoutes = require("./routes/store")
 
@@ -24,7 +24,7 @@ app.use(morgan("tiny"))
 app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRoutes)
-app.use("/order", orderRoutes)
+app.use("/orders", orderRoutes)
 app.use("/store", storeRoutes) 
 
 /** Handle 404 errors -- this matches everything */

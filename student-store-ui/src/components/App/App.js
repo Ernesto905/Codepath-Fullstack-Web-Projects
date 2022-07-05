@@ -57,11 +57,13 @@ export default function App() {
       setIsFetching(true)
 
       try {
-        const res = await axios.get("http://localhost:3001/store")
-        if (res?.data?.products) {
-          setProducts(res.data.products)
+        const {data, error} = await axios.get("http://localhost:3001/store")
+        console.log(data)
+        if (data?.products) {
+          setProducts(data.products)
         } else {
           setError("Error fetching products.")
+          console.log('efsdfasdfdsf')
         }
       } catch (err) {
         console.log(err)

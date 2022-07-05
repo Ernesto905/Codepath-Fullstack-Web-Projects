@@ -1,10 +1,14 @@
 const db = require("../db")
 
 class Store {
-    static async listProducts(){
-        //TODO: run a SQL query that searches the database for all products and returns a list of them.
-        console.log('Nothing')
-    }
+  static async listProducts() {
+    const result = await db.query(`
+      SELECT id, name, category, description, image, category, price
+      FROM products;
+    `)
+
+    return result.rows
+  }
 }
 
 module.exports = Store
