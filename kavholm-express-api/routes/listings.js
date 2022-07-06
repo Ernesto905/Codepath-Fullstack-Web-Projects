@@ -7,7 +7,7 @@ router.post("/", security.requireAuthenticatedUser, async function (req, res, ne
   try {
     const user = res.locals.user
     const listing = await Listing.createListing({ newListing: req.body.newListing, user })
-    return res.status(200).json({ listing })
+    return res.status(201).json({ listing })
   } catch (err) {
     next(err)
   }

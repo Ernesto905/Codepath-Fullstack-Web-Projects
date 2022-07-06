@@ -2,6 +2,56 @@ const db = require("../db")
 const { BadRequestError, NotFoundError } = require("../utils/errors")
 
 class Booking {
+
+  static async createBooking( {user, ourListing, newBooking} ) {
+
+    const requiredFields = ["startDate", "endDate"];
+    
+    requiredFields.forEach((property) => {
+
+      if(!newBooking.hasOwnProperty(property)){
+        throw new BadRequestError(`Missing ${property} in request body.`)
+      }
+
+    })
+
+    const result = await db.query (
+      `
+      INSERT INTO bookings (payment_method, 
+                            start_date, 
+                            end_date, 
+                            guests, 
+                            total_cost,
+                            listing_id,
+                            user_id
+        )
+      VALUES ($1, ($2)::date, ($3)::date, $4, CEIL((($3)::date - ($2)::date + 1) * ($5 * 1.1)), $6, (SELECT id FROM users WHERE username = $7))
+      RETURNING id, 
+                start_date AS "startDate",
+                end_date AS "endDate",
+                guests,
+                total_cost AS "totalCost",
+                user_id AS "userId",
+                ( SELECT username
+                  FROM users
+                  WHERE id = user_id) AS "username",
+                (SELECT hostUsers.username
+                  FROM users AS hostUsers
+                  WHERE hostUsers.id = (
+                    SELECT listings.user_id
+                    FROM listings
+                    WHERE listings.id = listing_id)) AS "hostUsername",
+                created_at AS "createdAt",
+                payment_method AS "paymentMethod",
+                listing_id AS "listingId"
+      `, [newBooking.paymentMethod || "card", newBooking.startDate, newBooking.endDate, newBooking.guests || 1, ourListing.price, ourListing.id, user.username]
+    )
+
+    return result.rows[0]
+
+  }
+
+
   static async fetchBookingById(bookingId) {
     // fetch a single booking by its id
     const results = await db.query(
