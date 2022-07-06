@@ -50,6 +50,22 @@ describe("GET /bookings/", () => {
     expect(res.statusCode).toEqual(401)
   })
 })
+/************************************** GET bookings/listings/:listingId */
+
+// describe("GET /bookings/listings/:listingId", () => {
+//   test("Listing owner can fetch all bookings for a single listing", async () => {
+//     listingId = testListingIds[0]
+
+//     const res = await request(app).get(`/bookings/listings/${listingId}`).set("authorization", `Bearer ${testTokens.lebronToken}`)
+
+//     expect(res.statusCode).toEqual(200)
+
+//     const { bookings } = res.body
+
+//     const firstBooking = boo
+//   })
+// })
+ 
 
 /************************************** GET bookings/listings */
 describe("GET /bookings/listings", () => {

@@ -96,6 +96,37 @@ class Booking {
     throw new NotFoundError("No booking found with that id.")
   }
 
+  static async listBookingForListing(listing) {
+    const result = await db.query(
+      `
+      SELECT  bookings.id,
+              bookings.payment_method AS "paymentMethod",
+              bookings.start_date AS "startDate",
+              bookings.end_date AS "endDate",
+              bookings.guests,
+              bookings.total_cost AS "totalCost",
+              bookings.listing_id AS "listingId",
+              bookings.user_id AS "userId",
+              
+              --selects the host for the location
+              (SELECT hostUsers.username
+              FROM users AS hostUsers
+              WHERE hostUsers.id = (
+                SELECT listings.user_id
+                FROM listings
+                WHERE listings.id = listing_id)
+              ) AS "hostUsername", 
+
+            bookings.created_at AS "createdAt"
+      FROM bookings
+        JOIN listings ON listings.id = bookings.listing_id
+      WHERE listing_id = $1
+      ORDER BY bookings.created_at DESC;
+      `, [listing.id]
+    )
+    return result.rows
+  }
+
   static async listBookingsFromUser(user) {
     // list all bookings that the user has created
     const results = await db.query(
