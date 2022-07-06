@@ -5,9 +5,13 @@ const morgan = require("morgan")
 
 const config = require("./config")
 const security = require("./middleware/security")
+
+//routes
 const authRoutes = require("./routes/auth")
 const listingRoutes = require("./routes/listings")
 const bookingRoutes = require("./routes/bookings")
+
+//error handling
 const { NotFoundError } = require("./utils/errors")
 
 const app = express()
