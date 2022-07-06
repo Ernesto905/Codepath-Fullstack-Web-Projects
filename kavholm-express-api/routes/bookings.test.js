@@ -94,9 +94,13 @@ describe("POST bookings/listings/:listingId", () => {
     startDate = "07-06-2022"
     endDate = "08-08-2028"
     guests = 1
+    
+    const data = { newBooking: { startDate, endDate, guests } }
 
-    const data = { newBooking : {startDate, endDate, guests}}
-    const res = await (await request(app).post(`/bookings/listings/:listingId`)).setEncoding("Authorization", `Bearer ${jloToken}`).send(data)
+    const res = await request(app)
+      .post(`/bookings/listings/${listingId}`)
+      .set("authorization", `Bearer ${testTokens.jloToken}`)
+      .send(data)
 
     expect(res.statusCode).toEqual(201)
 
@@ -105,13 +109,16 @@ describe("POST bookings/listings/:listingId", () => {
 
     expect(booking).toEqual({
       id: expect.any(Number),
-      startDate: expect.any(Date),
-      endDate: expect.any(Date),
+      startDate: expect.any(String),
+      endDate: expect.any(String),
+      hostUsername: "lebron",
       paymentMethod: "card",
       guests: 1,
+      totalCost: "58337895",
+      userId: expect.any(Number),
       listingId: listingId,
       username: "jlo",
-      createdAt: expect.any(Date)
+      createdAt: expect.any(String)
     })
   })
   test("Throws a Bad Request error when user attempts to book their own listing", async () => {
@@ -121,8 +128,12 @@ describe("POST bookings/listings/:listingId", () => {
     guests = 1
     
     const data = {newBooking : {startDate, endDate, guests}}
-    const res = await (await request(app).post(`/bookings/listings/:listingId`)).setEncoding("Authorization", `Bearer ${lebronToken}`).send(data)
-    
+
+    const res = await request(app)
+      .post(`/bookings/listings/${listingId}`)
+      .set("authorization", `Bearer ${testTokens.lebronToken}`)
+      .send(data)
+
     expect(res.statusCode).toEqual(400)
   })
 })

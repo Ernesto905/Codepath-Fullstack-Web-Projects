@@ -95,14 +95,14 @@ describe("Booking", () => {
     test("Can create a new booking with valid params", async () => {
       const user = {  username : "jlo" }
       const listingId = testListingIds[0]
-      const ourListing = await Listing.fetchListingById(listingId)
+      const listing = await Listing.fetchListingById(listingId)
 
       startDate = "07-06-2022"
       endDate = "08-08-2028"
       guests = 1
       newBooking = {startDate, endDate, guests}
 
-      const booking = await Booking.createBooking({ user, ourListing, newBooking })
+      const booking = await Booking.createBooking({ user, listing, newBooking })
 
       booking.totalCost = Number(booking.totalCost)
 
