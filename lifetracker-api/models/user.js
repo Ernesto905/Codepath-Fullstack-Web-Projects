@@ -1,4 +1,5 @@
 const db = require("../db")
+require("colors")
 const bcrypt = require("bcrypt") //please work!
 const { BadRequestError, UnauthorizedError } = require("../utils/errors")
 require("dotenv").config()
@@ -16,7 +17,8 @@ class User {
             id: user.id,
             email: user.email,
             first_name: user.first_name,
-            last_name: user.last_name
+            last_name: user.last_name,
+            username: user.username
         }
     }
 
@@ -58,12 +60,11 @@ class User {
             throw new BadRequestError("Invalid Email.")
         }
 
-        //TODO make sure no user exists in the system with the email in question
-        const userExists = await User.fetchUserByEmail(credentials.email)
-        if (userExists) {
+        //make sure no user exists in the system with the email in question
+        const existingEmail = await User.fetchUserByEmail(credentials.email)
+        if (existingEmail) {
             throw new BadRequestError(`Duplicate email: ${credentials.email}`)
         }
-
 
         //hash user's password
         const hashedPassword = await bcrypt.hash(credentials.password, 13)
@@ -97,6 +98,8 @@ class User {
         const result = await db.query(query, [email.toLowerCase()])
 
         const user = result.rows[0]
+
+        
         return user
     }
 }
