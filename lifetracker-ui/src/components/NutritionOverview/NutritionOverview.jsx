@@ -30,7 +30,7 @@ function NutritionOverview(props) {
     <div className='nutrition-overview'>
         <div className='nutrition-header'>
           <h1 className='nutrition-title'>Overview</h1>
-          <Link to='/nutrition/create'><button>Record Nutrition</button></Link>
+          <Link to='/nutrition/create'><button className='btn'>Record Nutrition</button></Link>
         </div>
 
         <div className='nutrition-content'>

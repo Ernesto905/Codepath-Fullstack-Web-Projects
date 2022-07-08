@@ -17,8 +17,11 @@ function ActivityFeed(props) {
   
 
   let totalCals = 0; 
-  props.nutritionItems.forEach((item, index) => {
-    totalCals += Number(item.calories)
+  // props.nutritionItems.forEach((item, index) => {
+  //   totalCals += Number(item.calories)
+  // })
+  categories.forEach((item) => {
+    totalCals += Number(item.avgCaloriesPerCategory)
   })
 
   async function getActivity() {
@@ -47,7 +50,7 @@ function ActivityFeed(props) {
         <div className='per-category'>
           <div className='avg-daily'>
             <h4>Average Daily Calories</h4>
-            <h1>{totalCals / props.nutritionItems?.length}</h1>
+            <h1>{totalCals / categories?.length}</h1>
           </div>
           <div className='avg-per-category'>
             <h4>Average Calories per category</h4>
@@ -56,8 +59,8 @@ function ActivityFeed(props) {
               //88888888888
               <div className='individual-category'>
                 <div className='category-content'>
-                  <h4>{category.category}</h4>
-                  <h4>{category.avgCaloriesPerCategory}</h4>
+                  <h4>{category.category}: {category.avgCaloriesPerCategory}</h4>
+                  
                 </div>
               </div>
               //88888888888
