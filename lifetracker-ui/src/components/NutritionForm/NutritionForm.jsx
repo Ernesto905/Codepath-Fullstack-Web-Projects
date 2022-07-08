@@ -2,7 +2,8 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import apiClient from '../../services/apiClient'
 
 //styling
 import "./NutritionForm.css"
@@ -16,29 +17,70 @@ function NutritionForm(props) {
         calories: 1,
         imageUrl: '',}])
  
+    const [error, setError] = useState({})
+    const [isPosted, setIsPosted] = useState(false)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+      if(isPosted){
+        navigate("/nutrition")
+      }
+    }, [isPosted, navigate])
 
     const handleOnInputChange = (event) => {
       setForm((f) => ({...f, [event.target.name] : event.target.value}))
     }
 
-    const handleOnSubmit = async () => {
+    const handleOnSubmit = async (e) => {
+      e.preventDefault();
+      setError((err) => ({...err, form: null}))
       
-      //update nutrition
-      await props.setNutritionItems([...props.nutritionItems, form])
-
-      //set up axios post request
-      try {
-        const res = await axios.post("http://localhost:3001/nutrition", {
-          name: form.name,
-          category: form.category,
-          img_url: form.imageUrl,
-          calories: form.calories,
-          user_id: "I am a user id... trust me ",
-        }) 
-        
-      } catch (err) {
-        console.log("error: ", err)
+      //error handling
+      if( form.name =="") {
+        setError((err) => ({...err, form: "Please input a name"}))
+        return
       }
+
+      if ( form.category =="") {
+        setError((err) => ({...err, form: "Please input a category"}))
+        return 
+      }
+
+      const {data, err} = await apiClient.createNutrition({
+        name : form.name,
+        category: form.category,
+        calories: form.calories,
+        img_url: form.imageUrl,
+        quantity: form.quantity
+      })
+
+      if (data) {
+        setForm({
+          name: '',
+          category: '',
+          quantity: 1,
+          calories: 1,
+          imageUrl: '', 
+        })
+
+        setIsPosted(true)
+      }
+      // //update nutrition
+      // await props.setNutritionItems([...props.nutritionItems, form])
+
+      // //set up axios post request
+      // try {
+      //   const res = await axios.post("http://localhost:3001/nutrition", {
+      //     name: form.name,
+      //     category: form.category,
+      //     img_url: form.imageUrl,
+      //     calories: form.calories,
+      //     user_id: "I am a user id... trust me ",
+      //   }) 
+        
+      // } catch (err) {
+      //   console.log("error: ", err)
+      // }
 
 
       

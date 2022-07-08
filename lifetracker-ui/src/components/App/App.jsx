@@ -67,7 +67,7 @@ export default function App() {
         
         <BrowserRouter>
 
-        <Navbar setCurrentUser={setCurrentUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
+        <Navbar setNutritionItems={setNutritionItems} setCurrentUser={setCurrentUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
 
           <Routes>
 

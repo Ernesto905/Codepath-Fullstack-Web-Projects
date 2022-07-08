@@ -15,6 +15,7 @@ function NavLinks(props) {
     await apiClient.logoutUser()
     props.setIsLoggedIn(false)
     props.setCurrentUser({})
+    props.setNutritionItems([])
   }
   
   return (

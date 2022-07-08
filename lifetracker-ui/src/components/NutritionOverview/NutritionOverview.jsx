@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import apiClient from '../../services/apiClient'
 
 //styling
 import "./NutritionOverview.css"
@@ -8,11 +9,16 @@ import "./NutritionOverview.css"
 
 function NutritionOverview(props) {
 
-  function peepNutritionItems(){
-    props.nutritionItems.forEach((item) => {
-      console.log(item)
-    })
+  async function getNutritionItems() {
+    const {data, err} = await apiClient.fetchNutrition()
+    if(data){
+      props.setNutritionItems(data.nutrition)
+    }
   }
+
+  useEffect(() => {
+    getNutritionItems()
+  }, [])
 
   
   return (
