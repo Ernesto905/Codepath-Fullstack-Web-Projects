@@ -12,22 +12,51 @@ import ActivityPage from "components/ActivityPage/ActivityPage"
 import NotFound from "components/NotFound/NotFound"
 
 
-//Required node modules
+//Required node modules and Backend requirements
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import axios from 'axios'
+import { useEffect } from "react"
 import { useState } from "react"
+import apiClient from "../../services/apiClient"
+
+//import 
 
 
 export default function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [currentUser, setCurrentUser] = useState('')
+  const [currentUser, setCurrentUser] = useState({})
+  const [error, setError] = useState(null)
 
   //nutrition items
   const [nutritionItems, setNutritionItems] = useState([])
   
   
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data, err } = await apiClient.fetchUserFromToken()
+      if(data) {
+        console.log("current user is: ", data.user)
+        setCurrentUser(data.user)
+        setIsLoggedIn(true)
+      }
+      if(err) {
+        setError(err)
+      }
+    }
 
+    const token = localStorage.getItem("my_token")
+    if(token) {
+      apiClient.setToken(token)
+      fetchUser()
+    }
+   }, [])
+
+   const handleSignout = async () => {
+    await apiClient.logoutUser()
+    setCurrentUser({})
+    setError(null)
+   }
   
 
   return (
@@ -38,7 +67,7 @@ export default function App() {
         
         <BrowserRouter>
 
-        <Navbar setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
+        <Navbar setCurrentUser={setCurrentUser} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
 
           <Routes>
 
@@ -48,9 +77,9 @@ export default function App() {
             {/* Registration page route goes here */}
             <Route path="/register" element={<RegistrationPage currentUser={currentUser} setCurrentUser={setCurrentUser} setIsLoggedIn={setIsLoggedIn}/>}/>
             {/* Activity page route goes here */}
-            {isLoggedIn ? <Route path="/activity" element={<ActivityPage nutritionItems={nutritionItems}/>}/> : <Route path="/activity" element={<LoginPage attempt={true} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
+            {isLoggedIn ? <Route path="/activity" element={<ActivityPage nutritionItems={nutritionItems}/>}/> : <Route path="/activity" element={<LoginPage attempt={true} currentUser={currentUser} setCurrentUser={setCurrentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
             {/* Nutrition page route goes here */}
-            {isLoggedIn ? <Route path="/nutrition/*" element={<NutritionPage nutritionItems={nutritionItems} setNutritionItems={setNutritionItems}/>}/> : <Route path="/nutrition" element={<LoginPage attempt={true} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
+            {isLoggedIn ? <Route path="/nutrition/*" element={<NutritionPage nutritionItems={nutritionItems} setNutritionItems={setNutritionItems}/>}/> : <Route path="/nutrition" element={<LoginPage attempt={true} currentUser={currentUser} setCurrentUser={setCurrentUser} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}/>}
             
             {/* Not found page route goes here */}
             <Route path="/*" element={<NotFound/>}/>

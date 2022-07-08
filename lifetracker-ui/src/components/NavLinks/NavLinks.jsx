@@ -1,14 +1,21 @@
 import React from 'react'
 import "./NavLinks.css"
 
-//import components
-
 //import node modules
 import { Link } from 'react-router-dom'
+
+//import api client
+import apiClient from '../../services/apiClient'
 
 
 function NavLinks(props) {
   let hideButton = props.isLoggedIn ? "hidden" : ""
+
+  const handleLogout = async () => {
+    await apiClient.logoutUser()
+    props.setIsLoggedIn(false)
+    props.setCurrentUser({})
+  }
   
   return (
     <div className="nav-links">
@@ -19,7 +26,7 @@ function NavLinks(props) {
             <li className={hideButton}><Link className="link" style={{textDecoration: 'none'}} to="/login">Login</Link></li>
             <li className={hideButton}><Link className="link" style={{textDecoration: 'none'}} to="/register">Register</Link></li>
             
-            {props.isLoggedIn ? <button className="navlink-btn" onClick={async () => props.setIsLoggedIn(false)}>SignOut</button> : null}
+            {props.isLoggedIn ? <button className="navlink-btn" onClick={handleLogout}>SignOut</button> : null}
           </ul>
 
             

@@ -19,7 +19,7 @@ function Navbar(props) {
         
           <Link to="/"> <Logo /> </Link>
             
-          <NavLinks setIsLoggedIn={props.setIsLoggedIn} isLoggedIn={props.isLoggedIn}/>
+          <NavLinks setCurrentUser={props.setCurrentUser} setIsLoggedIn={props.setIsLoggedIn} isLoggedIn={props.isLoggedIn}/>
 
         </div>
     </div>

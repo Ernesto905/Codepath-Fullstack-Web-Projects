@@ -14,7 +14,7 @@ function RegistrationPage(props) {
       {/* If user is not logged in */}
       <div className='cart'>
         <h1 className='register-message'>Register</h1>
-        <RegistrationForm setIsLoggedIn={props.setIsLoggedIn}/>
+        <RegistrationForm setCurrentUser={props.setCurrentUser} setIsLoggedIn={props.setIsLoggedIn}/>
       </div>
       
     </div>
