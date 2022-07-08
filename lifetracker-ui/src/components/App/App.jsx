@@ -26,6 +26,7 @@ export default function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
+  const [avgDailyCals, setAvgDailyCals] = useState(0)
   const [error, setError] = useState(null)
 
   //nutrition items

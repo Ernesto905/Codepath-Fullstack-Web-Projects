@@ -20,6 +20,11 @@ function NutritionOverview(props) {
     getNutritionItems()
   }, [])
 
+  // console.log("nutrition items: ", props.nutritionItems)
+  // function getAvgNutritionByCategory() {
+  //   console.log(props.nutritionItems)
+  // }
+
   
   return (
     <div className='nutrition-overview'>

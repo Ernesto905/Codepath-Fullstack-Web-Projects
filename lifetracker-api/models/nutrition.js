@@ -78,6 +78,7 @@ class Nutrition {
             SELECT  n.id,
                     n.name,
                     n.calories,
+                    n.category,
                     n.img_url AS "imageUrl",
                     n.user_id AS "userId",
                     to_char(n.created_at, 'DD/MM/YYYY') AS "createdAt",

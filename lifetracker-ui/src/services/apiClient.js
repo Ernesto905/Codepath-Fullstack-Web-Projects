@@ -47,6 +47,10 @@ class ApiClient {
         return await this.request({endpoint: `nutrition`, method: `GET`, data: null})
     }
 
+    async fetchActivity() {
+        return await this.request({endpoint: `activity`, method: `GET`, data: null})
+    }
+
     async fetchNutritionById(nutritionId){
         return await this.request({endpoint: `nutrition/id/${nutritionId}`, method: `GET`})
     }

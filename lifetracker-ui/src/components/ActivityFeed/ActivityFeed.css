@@ -32,12 +32,18 @@
 
 .per-category {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 40px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
 }
 
-.sleep-cat {
-    margin: 80px;
+.individual-category {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.category-content {
+    display: flex;
 }
