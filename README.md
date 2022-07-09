@@ -17,7 +17,7 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
 - [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
 - [x] Users have access to an overview Activity page that show one summary statistic about each of the 3 types of activity tracked.
-- [ ] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
+- [x] The API should have a `security` middleware that only allows authenticated users to access resources and only allows users to access resources about themselves. 
 - [x] Users should have the ability to track at least **1** types of activities (i.e Nutrition, Exercise, Sleep, etc.). Each activity should be tracked on separate pages.
 - [ ] Deployed website with Heroku & Surge. 
 
@@ -50,19 +50,19 @@ Implement any of the following features to improve the application:
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-The topics in the lab prepared me for everything but the web token authentication, which we will review next week, and deployment with Heroku and Surge.
+The topics in the lab prepared me for everything we needed in this lab. Topic such as web tokens and use state, which were heavily reviewd, were indispensable for this project. 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-If i had more time, I would've relied on the backend alot more. A great deal of the logic is done on the front end which I know is a big no-no. 
+If i had more time, I would continue to try my hand at deployment as well as the stretch features. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Being able to connect to the backend was probably highlight of this project. Being asked to implement Json web tokens was not expected but was still appreciated since extending past one's comfort zones is the best remedy for growth!
+Everything went according to plan in the demos. A great deal of people were able to deploy which was very impressive. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- stack overflow
 
 ### Shout out
 
