@@ -2,7 +2,7 @@
 
 Submitted by: **Ernesto**
 
-Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
+Deployed Application: [Lifetracker Deployed Site](http://magenta-education.surge.sh)
 
 ## Application Features
 
