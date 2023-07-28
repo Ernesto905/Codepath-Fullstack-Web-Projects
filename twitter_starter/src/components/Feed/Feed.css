@@ -1,0 +1,18 @@
+.feed {
+  flex: 5;
+  background: white;
+}
+.twitter-feed {
+  min-height: calc(100vh - 250px);
+}
+.see-new-tweets {
+  background: rgb(245, 248, 250);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.see-new-tweets p {
+  color: var(--twitter-blue);
+  cursor: pointer;
+}

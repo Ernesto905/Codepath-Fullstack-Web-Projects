@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --twitter-light-blue: rgb(234, 245, 252);
+  --twitter-blue: rgb(72, 161, 235);
+  --twitter-bg: rgb(231, 236, 239);
+  --twitter-light-gray: rgb(245, 248, 250);
+  --twitter-mid-gray: rgb(206, 214, 220);
+  --twitter-dark-gray: rgb(102, 117, 130);
+  --font-main: rgb(0, 0, 0);
+  --font-secondary: #14171a;
+  --nav-border: rgba(0, 0, 0, 0.25);
+}
+body {
+  background: var(--twitter-bg);
+  font-size: 14px;
+  font-family: Helvetica Neue;
+}
+
+i,
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+i.fa-circle {
+  color: var(--twitter-mid-gray);
+  font-size: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+}
+i.fa-user {
+  color: var(--twitter-dark-gray);
+  font-size: 24px;
+  transform: translateY(6px);
+}
+
+.col {
+  margin: 0 16px;
+}
+.red {
+  color: #ff7169;
+}
+
+main {
+  padding-top: 60px;
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+
+/***************
+  MEDIA QUERIES
+****************/
+
+@media screen and (max-width: 1150px) {
+  main {
+    padding: 60px 20px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  main {
+    padding: 60px 20px;
+  }
+}
+@media screen and (max-width: 740px) {
+  main {
+    padding: 60px 20px;
+  }
+}

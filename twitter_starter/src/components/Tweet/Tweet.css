@@ -1,0 +1,75 @@
+.tweet {
+  width: 100%;
+  border: solid 1px var(--twitter-light-gray);
+  display: grid;
+  grid-template-columns: 70px 1fr;
+}
+.tweet-avatar {
+  padding: 5px 10px 5px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.tweet-content {
+  padding: 15px;
+  width: 100%;
+}
+.tweet-user-info {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+.tweet-user-info span {
+  color: var(--twitter-dark-gray);
+}
+.tweet-user-info i {
+  color: var(--twitter-blue);
+  transform: translateY(-7px);
+}
+.tweet-user-info i.fa-check {
+  color: white;
+  font-size: 8px;
+  transform: translateY(0px);
+}
+.tweet-user-info .meta {
+  display: flex;
+  gap: 7px;
+}
+.tweet-user-info .meta .name {
+  font-weight: bold;
+}
+.tweet-text {
+  margin-top: 5px;
+  line-height: 22px;
+  margin-right: 20px;
+}
+.tweet-footer {
+  display: flex;
+  margin-top: 10px;
+}
+.tweet-footer i {
+  margin-right: 10px;
+  color: var(--twitter-dark-gray);
+}
+.tweet-footer span {
+  cursor: pointer;
+}
+.tweet-footer span:hover i {
+  color: var(--twitter-blue);
+}
+
+.tweet-footer span {
+  margin-right: 40px;
+  color: var(--twitter-dark-gray);
+  display: flex;
+}
+
+
+@media screen and (max-width: 740px) {
+  .tweet {
+    min-width: 300px;
+  }
+  .tweet-text {
+    width: 80%;
+  }
+}
