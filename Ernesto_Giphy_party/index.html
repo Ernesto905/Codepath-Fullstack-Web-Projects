@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy search</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+    <div class="topOfThePage">
+        <h1>
+            Gif search
+            <img src="attribution.png" alt="Powered by Giphy">
+        </h1>
+
+    </div>
+    
+
+    
+    <form id="ourForm">
+
+        <div class="searchElements">
+            <label for = "gifSearch"> Search for a gif </label>
+            <input type="text" id="gifSearch" name="gifSearch" placeholder="Search for a gif: " required>
+            <input type="submit" id="button">
+        </div>
+
+
+        <div id="gif_results">
+            
+        </div>
+
+        <div id="moreResults">
+
+            
+        </div>
+
+        <button class="hidden" onclick=showMoreGifs() id="addGifsBtn">Load more gifs</button> 
+
+    </form>
+
+
+</body>
+<script src="app.js"></script> 
+</html>
