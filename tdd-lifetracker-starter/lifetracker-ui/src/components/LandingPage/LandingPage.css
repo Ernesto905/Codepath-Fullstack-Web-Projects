@@ -1,0 +1,26 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.hero-img {
+    position: absolute;
+}
+
+.cta {
+    position: absolute;
+    padding-top: 200px;
+}
+.cta h1 {
+    text-align: center;
+}
+
+.bottom-section {
+    display: flex;
+    margin-top: 450px;
+}
+
+.fit, .food, .rest, .plan {
+    padding: 45px;
+}

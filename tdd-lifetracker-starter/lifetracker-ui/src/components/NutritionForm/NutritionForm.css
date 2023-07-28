@@ -1,0 +1,11 @@
+.nutrition-form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 300px;
+    margin-bottom: 200px;
+}
+.food-details {
+    
+    grid-gap: 20px;
+}

@@ -1,0 +1,7 @@
+.content {
+    display: flex;
+    align-items: center;
+}
+.Logo {
+    padding-left: 10px;
+}
