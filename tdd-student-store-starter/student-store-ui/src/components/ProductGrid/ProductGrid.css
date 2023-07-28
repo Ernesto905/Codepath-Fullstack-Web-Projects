@@ -1,0 +1,26 @@
+
+
+.category-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    list-style-type: none;
+    height: 40px;
+    font-weight: 500;
+    transition: all .2s ease;
+    background-color: #2c4047;
+    
+    
+}
+
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content {
+    color: white;
+}

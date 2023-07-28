@@ -1,0 +1,13 @@
+.sidebar{
+    background-color: #2c4047;
+    color: black;
+    padding: 4px;
+    position: fixed;
+    height: 100%;
+    z-index: 5;
+    font-weight: bold;
+}
+.sidebar.open{
+    width: 351px;
+}
+

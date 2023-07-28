@@ -1,0 +1,41 @@
+.navbar {
+    width: 100%;
+    max-width: 100vw;
+    padding-left: 60px;
+    height: 70px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 var(--side-padding);
+    background-color: #2c4047;
+    text-decoration: none;
+    
+}
+
+.navbar .content {
+    
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.links li {
+    display: inline;
+    flex-direction: row;
+    padding: 200px;
+    padding-left: 80px;
+    font-size:xx-large;
+    text-decoration: none;
+
+}
+
+.store-name {
+    padding-right: 40px;
+}
+.open {
+    padding-left: 300px;
+}
