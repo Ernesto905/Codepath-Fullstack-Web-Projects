@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Flixter App</title>
+</head>
+<body>
+
+    
+    
+
+
+
+    <div id="intro">
+        <img id="logo" src="FlixterLogo.webp" alt="[Flixter Logo]">
+        <h1>Flixter App</h1>
+        <img id="attribution" src="theAttribution.jfif" alt="[attribution]">
+    </div>
+
+    
+    <form id="search-form">
+        <input id="search-input" name="search-name" placeholder="Enter a search" type="text">
+        <button type="submit" class="search-btn">Search for a movie</button>
+        <button type="submit" id="close-search-btn" class="reset-page">Now Playing </button>
+        <h2 class="center">Now playing</h2>
+    </form>
+        
+        <div id="movies-grid" class="our-movie">
+
+        </div>
+
+        <button type="button" id="load-more-movies-btn">Show more</button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Go to top</button> 
+
+        <div class="popup" id="popup-1">
+            <div class="overlay"></div> 
+            <div class="content">
+                <div class="close-btn" onclick="closePopup()">&times;</div>
+                <h1 id="popUp-title" class="popup-title">Title</h1>
+                <p id="popUp-text">
+                    Text goes here
+                </p>
+            </div>
+        </div>
+        
+</body>
+
+    <script src="script.js"> </script>
+
+</html>
