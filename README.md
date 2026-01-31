@@ -3,5 +3,3 @@ This repository serves as a single source of entry for every Postgres, ExpressJS
 
 Each project functions as a stand alone web application. During the internship, the backend was deployed with heroku and the frontend with surge. 
 
-All projects were amalgamated using Git Subtrees, maintaining a relative and organized structure to the overall commit history. 
-
